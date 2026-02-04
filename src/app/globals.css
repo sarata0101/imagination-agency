@@ -4,25 +4,25 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #FDFDFD;
-  --foreground: #0A0A0A;
+  --background: #f6f5f5;       
+  --foreground: #1a1a1a;       
   --card: #FFFFFF;
-  --card-foreground: #0A0A0A;
+  --card-foreground: #1a1a1a;
   --popover: #FFFFFF;
-  --popover-foreground: #0A0A0A;
-  --primary: #0A0A0A;
-  --primary-foreground: #FDFDFD;
-  --secondary: #F5F5F5;
-  --secondary-foreground: #0A0A0A;
+  --popover-foreground: #1a1a1a;
+  --primary: #49368c;          
+  --primary-foreground: #FFFFFF; 
+  --secondary: #4fb27d;        
+  --secondary-foreground: #FFFFFF;
   --muted: #F5F5F5;
   --muted-foreground: #6B6B6B;
-  --accent: #FF5722;
+  --accent: #4fb27d;           /* 🟢 (تعديل) خليناه نفس الأخضر للتناسق */
   --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: #E5E5E5;
   --input: #E5E5E5;
-  --ring: #FF5722;
+  --ring: #49368c;             /* 🟣 (تعديل) حدود الخانات بنفسجي */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -40,38 +40,49 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
+  --background: #050505;       /* أسود ملكي (مش مطفي) */
+  --foreground: #ffffff;       /* الكلام أبيض ناصع */
+  
+  --card: #121212;             /* الكروت رمادي غامق جداً عشان تتميز عن الخلفية */
+  --card-foreground: #ffffff;
+  
+  --popover: #121212;
+  --popover-foreground: #ffffff;
+  
+  --primary: #49368c;          /* 💜 نفس البنفسجي بتاعنا */
+  --primary-foreground: #ffffff;
+  
+  --secondary: #4fb27d;        /* 💚 نفس الأخضر بتاعنا */
+  --secondary-foreground: #ffffff;
+  
+  --muted: #2a2a2a;            /* رمادي غامق للفواصل */
+  --muted-foreground: #a3a3a3;
+  
+  --accent: #4fb27d;           /* 💚 الأخضر هنا بيبقى تحفة في الدارك */
+  --accent-foreground: #ffffff;
+  
+  --destructive: oklch(0.396 0.141 25.723); /* الأحمر للتحذير سيبيه زي ما هو */
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  
+  --border: #2e2e2e;           /* حدود خفيفة جداً */
+  --input: #2e2e2e;
+  --ring: #49368c;             /* 💜 حلقة التركيز بنفسجي */
+  
+  /* ألوان الرسوم البيانية (Charts) سيبيها زي ما هي */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  
+  --sidebar: #050505;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #49368c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2e2e2e;
+  --sidebar-ring: #49368c;
 }
 
 @theme inline {

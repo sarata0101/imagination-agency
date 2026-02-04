@@ -20,35 +20,35 @@ module.exports = {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        ring: "#49368c", // (تعديل) خليناه لون البراند البنفسجي
+        background: "#f6f5f5", // (تعديل) لون الخلفية الأوف وايت بتاعكم
+        foreground: "#1a1a1a", // لون الكلام (أسود غامق)
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#49368c", // (تعديل) اللون البنفسجي الأساسي
+          foreground: "#ffffff", // الكلام اللي فوقه يكون أبيض
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#4fb27d", // (تعديل) اللون الأخضر الثانوي
+          foreground: "#ffffff", // الكلام اللي فوقه يكون أبيض
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
+          DEFAULT: "#f0f0f0", // لون رمادي فاتح جداً
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#4fb27d", // (تعديل) خليناه الأخضر برضه عشان التناسق
+          foreground: "#ffffff",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
+          DEFAULT: "#ffffff",
           foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
+          DEFAULT: "#ffffff",
           foreground: "hsl(var(--card-foreground))",
         },
       },

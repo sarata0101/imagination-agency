@@ -66,7 +66,8 @@ const itemVariants = {
 
 export function Portfolio() {
   return (
-    <section className="py-32 px-6 bg-secondary/50">
+    // (تعديل) الخلفية خليناها رمادي فاتح جداً بدل الأخضر الصريح
+    <section className="py-32 px-6 bg-muted/20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -75,7 +76,8 @@ export function Portfolio() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <span className="text-sm font-medium tracking-widest uppercase text-[#FF5722]">
+          {/* (تعديل) العنوان الصغير أخضر */}
+          <span className="text-sm font-medium tracking-widest uppercase text-secondary">
             Our Portfolio
           </span>
           <h2 className="mt-4 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-foreground">
@@ -113,12 +115,13 @@ export function Portfolio() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/70 transition-all duration-500" />
+                {/* (تعديل) الطبقة الشفافة بقت بنفسجي غامق عشان البراندنج */}
+                <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                 
                 {/* Content */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
-                  <span className="text-[#FF5722] text-sm font-medium tracking-wide uppercase mb-2">
+                  {/* (تعديل) نوع المشروع أخضر فاتح ينور على الخلفية البنفسجي */}
+                  <span className="text-secondary text-sm font-medium tracking-wide uppercase mb-2">
                     {project.category}
                   </span>
                   <h3 className="font-[family-name:var(--font-heading)] text-xl md:text-2xl font-semibold text-white">
@@ -126,8 +129,8 @@ export function Portfolio() {
                   </h3>
                 </div>
 
-                {/* Corner accent */}
-                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-[#FF5722] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* (تعديل) الزاوية الديكورية بقت أخضر */}
+                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </motion.div>
           ))}
@@ -140,7 +143,8 @@ export function Portfolio() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <button className="px-8 py-4 border-2 border-foreground text-foreground font-medium rounded-full hover:bg-foreground hover:text-background transition-colors duration-300">
+          {/* (تعديل) الزرار بقى بوردر بنفسجي وكتابة بنفسجي */}
+          <button className="px-8 py-4 border-2 border-primary text-primary font-medium rounded-full hover:bg-primary hover:text-white transition-colors duration-300">
             View All Projects
           </button>
         </motion.div>

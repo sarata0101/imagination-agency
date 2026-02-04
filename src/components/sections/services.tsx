@@ -3,6 +3,8 @@
 import { Video, Headphones, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 
+// دي القائمة اللي هنغير كلامها لما ابن خالتك يبعت المحتوى الجديد
+// حالياً سيبناها زي ما هي بس جهزنا المكان
 const services = [
   {
     icon: Video,
@@ -57,7 +59,8 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <span className="text-sm font-medium tracking-widest uppercase text-[#FF5722]">
+          {/* (تعديل) العنوان الصغير بالأخضر */}
+          <span className="text-sm font-medium tracking-widest uppercase text-secondary">
             What We Do
           </span>
           <h2 className="mt-4 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-foreground">
@@ -76,13 +79,17 @@ export function Services() {
             <motion.div
               key={service.title}
               variants={cardVariants}
-              className="group relative p-10 bg-card border border-border rounded-2xl hover:border-[#FF5722]/30 transition-all duration-500"
+              // (تعديل) البرواز لما الماوس يقف عليه يبقى بنفسجي خفيف
+              className="group relative p-10 bg-card border border-border rounded-2xl hover:border-primary/30 transition-all duration-500"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FF5722]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              {/* (تعديل) الإضاءة الخلفية بنفسجي */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               
               <div className="relative">
-                <div className="w-14 h-14 rounded-xl bg-[#FF5722]/10 flex items-center justify-center mb-6 group-hover:bg-[#FF5722]/20 transition-colors duration-300">
-                  <service.icon className="w-7 h-7 text-[#FF5722]" />
+                {/* (تعديل) خلفية الأيقونة بنفسجي هادي */}
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  {/* (تعديل) الأيقونة نفسها بنفسجي قوي */}
+                  <service.icon className="w-7 h-7 text-primary" />
                 </div>
                 
                 <h3 className="font-[family-name:var(--font-heading)] text-2xl font-semibold text-foreground mb-4">
@@ -93,7 +100,8 @@ export function Services() {
                   {service.description}
                 </p>
 
-                <div className="mt-6 flex items-center text-[#FF5722] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* (تعديل) كلمة Learn more بالأخضر عشان تشد العين */}
+                <div className="mt-6 flex items-center text-secondary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-sm">Learn more</span>
                   <svg
                     className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"

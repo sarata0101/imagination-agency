@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 
 export function CTA() {
   return (
-    <section className="relative py-40 px-6 bg-foreground overflow-hidden">
+    // (تعديل) الخلفية بنفسجي عشان تخطف العين وتفصل بين الأقسام
+    <section className="relative py-40 px-6 bg-primary overflow-hidden">
       {/* Arabic calligraphy inspired decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Flowing curved lines inspired by Arabic script */}
         <svg
-          className="absolute top-0 left-0 w-full h-full opacity-5"
+          className="absolute top-0 left-0 w-full h-full opacity-10"
           viewBox="0 0 1200 600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +46,7 @@ export function CTA() {
         {/* Large decorative swoosh */}
         <motion.div
           initial={{ opacity: 0, pathLength: 0 }}
-          whileInView={{ opacity: 0.08, pathLength: 1 }}
+          whileInView={{ opacity: 0.1, pathLength: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute -left-20 top-1/2 -translate-y-1/2"
@@ -53,7 +54,8 @@ export function CTA() {
           <svg width="400" height="300" viewBox="0 0 400 300" fill="none">
             <path
               d="M10,150 Q100,50 200,150 Q300,250 390,150"
-              stroke="#FF5722"
+              // (تعديل) الخطوط الزخرفية بالأخضر
+              stroke="#4fb27d" 
               strokeWidth="4"
               fill="none"
               strokeLinecap="round"
@@ -64,7 +66,7 @@ export function CTA() {
         {/* Right side decorative element */}
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.08 }}
+          whileInView={{ opacity: 0.1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, delay: 0.5 }}
           className="absolute -right-20 top-1/4"
@@ -72,7 +74,8 @@ export function CTA() {
           <svg width="300" height="400" viewBox="0 0 300 400" fill="none">
             <path
               d="M290,10 Q150,100 290,200 Q150,300 290,390"
-              stroke="#FF5722"
+              // (تعديل) الخطوط الزخرفية بالأخضر
+              stroke="#4fb27d"
               strokeWidth="3"
               fill="none"
               strokeLinecap="round"
@@ -90,18 +93,21 @@ export function CTA() {
         >
           {/* Arabic calligraphy style heading */}
           <div className="mb-8">
-            <span className="text-[#FF5722] text-lg md:text-xl font-medium tracking-wider">
+            {/* (تعديل) الكلمة العربي بالأخضر */}
+            <span className="text-secondary text-lg md:text-xl font-medium tracking-wider">
               لنتخيل معاً
             </span>
           </div>
           
-          <h2 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-background leading-[1.1] tracking-tight">
+          {/* (تعديل) العنوان الأساسي أبيض (عشان الخلفية بنفسجي) */}
+          <h2 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] tracking-tight">
             {"Let's Imagine"}
             <br />
-            <span className="text-[#FF5722]">Together</span>
+            {/* (تعديل) كلمة Together بالأخضر */}
+            <span className="text-secondary">Together</span>
           </h2>
 
-          <p className="mt-8 text-lg md:text-xl text-background/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-8 text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed">
             Ready to bring your vision to life? We're here to transform your ideas
             into captivating realities that leave lasting impressions.
           </p>
@@ -115,7 +121,8 @@ export function CTA() {
           >
             <Button
               size="lg"
-              className="bg-[#FF5722] text-white hover:bg-[#FF5722]/90 px-10 py-7 text-lg font-medium rounded-full"
+              // (تعديل) الزرار أخضر والكلام أبيض
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-10 py-7 text-lg font-medium rounded-full shadow-lg"
             >
               Start a Project
             </Button>
@@ -124,7 +131,8 @@ export function CTA() {
       </div>
 
       {/* Bottom decorative border */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF5722] to-transparent opacity-50" />
+      {/* (تعديل) الخط اللي تحت خالص تدرج أخضر */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50" />
     </section>
   );
 }

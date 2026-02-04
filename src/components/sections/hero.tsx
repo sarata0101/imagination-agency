@@ -20,7 +20,8 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.06, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-          className="absolute -bottom-16 -left-16 w-[300px] h-[300px] rounded-full bg-[#FF5722]/5"
+          // (تعديل) هنا استخدمنا الأخضر الثانوي عشان الشكل يبقى مريح للعين
+          className="absolute -bottom-16 -left-16 w-[300px] h-[300px] rounded-full bg-secondary/10"
         />
         {/* Diagonal line */}
         <motion.div
@@ -34,7 +35,8 @@ export function Hero() {
           initial={{ opacity: 0, rotate: 0 }}
           animate={{ opacity: 0.08, rotate: 45 }}
           transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-          className="absolute top-1/4 left-1/4 w-16 h-16 border border-[#FF5722]"
+          // (تعديل) وده كمان أخضر
+          className="absolute top-1/4 left-1/4 w-16 h-16 border border-secondary"
         />
         {/* Dots pattern */}
         <div className="absolute bottom-1/4 right-1/4 grid grid-cols-3 gap-4 opacity-10">
@@ -56,7 +58,8 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="inline-block mb-6 px-4 py-2 text-sm font-medium tracking-widest uppercase text-[#FF5722] border border-[#FF5722]/30 rounded-full">
+          {/* (تعديل) البادج خليته أخضر عشان يبان مميز */}
+          <span className="inline-block mb-6 px-4 py-2 text-sm font-medium tracking-widest uppercase text-secondary border border-secondary/30 rounded-full">
             Creative Studio
           </span>
         </motion.div>
@@ -69,7 +72,8 @@ export function Hero() {
         >
           Turning Passion
           <br />
-          <span className="text-[#FF5722]">into Reality</span>
+          {/* (تعديل) هنا أهم كلمة خليتها بالبنفسجي الأساسي */}
+          <span className="text-primary">into Reality</span>
         </motion.h1>
 
         <motion.p
@@ -94,9 +98,10 @@ export function Hero() {
           >
             Our Work
           </Button>
+          {/* (تعديل) زرار التواصل خليته بنفسجي ينور */}
           <Button
             size="lg"
-            className="bg-[#FF5722] text-white hover:bg-[#FF5722]/90 px-8 py-6 text-base font-medium rounded-full"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base font-medium rounded-full"
           >
             Contact Us
           </Button>
@@ -115,7 +120,8 @@ export function Hero() {
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="w-6 h-10 rounded-full border-2 border-foreground/20 flex items-start justify-center p-2"
         >
-          <motion.div className="w-1 h-2 rounded-full bg-[#FF5722]" />
+          {/* (تعديل) النقطة الصغيرة اللي بتتحرك خليتها بنفسجي */}
+          <motion.div className="w-1 h-2 rounded-full bg-primary" />
         </motion.div>
       </motion.div>
     </section>

@@ -18,6 +18,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
+    // الخلفية سوداء (foreground) والكلام أبيض (background)
     <footer className="bg-foreground text-background py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -30,7 +31,8 @@ export function Footer() {
             className="lg:col-span-1"
           >
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-[#FF5722] rounded-lg flex items-center justify-center">
+              {/* (تعديل) خلفية اللوجو بنفسجي */}
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">I</span>
               </div>
               <span className="font-[family-name:var(--font-heading)] font-bold text-xl">
@@ -46,7 +48,8 @@ export function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-[#FF5722] transition-colors"
+                  // (تعديل) لما الماوس يقف على الأيقونة تبقى بنفسجي
+                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
                   aria-label={social.name}
                 >
                   <social.icon className="w-5 h-5" />
@@ -72,7 +75,8 @@ export function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-background/60 hover:text-[#FF5722] transition-colors"
+                      // (تعديل) الروابط لما تقفي عليها تبقى أخضر
+                      className="text-background/60 hover:text-secondary transition-colors"
                     >
                       {link}
                     </a>
@@ -90,7 +94,8 @@ export function Footer() {
               &copy; {new Date().getFullYear()} Imagination Agency. All rights reserved.
             </p>
             <p className="text-background/40 text-sm">
-              Crafted with passion in New York
+              {/* (تعديل) غيرنا المكان للسعودية حسب الملف */}
+              Crafted with passion in Saudi Arabia
             </p>
           </div>
         </div>

@@ -17,7 +17,8 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <span className="text-sm font-medium tracking-widest uppercase text-[#FF5722]">
+          {/* (تعديل) العنوان الصغير أخضر */}
+          <span className="text-sm font-medium tracking-widest uppercase text-secondary">
             Get in Touch
           </span>
           <h2 className="mt-4 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-foreground">
@@ -46,14 +47,17 @@ export function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#FF5722]/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-[#FF5722]" />
+                {/* (تعديل) خلفية الأيقونة بنفسجي فاتح */}
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  {/* (تعديل) الأيقونة بنفسجي */}
+                  <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Email</p>
                   <a
                     href="mailto:hello@imaginationagency.com"
-                    className="text-muted-foreground hover:text-[#FF5722] transition-colors"
+                    // (تعديل) الهوفر أخضر
+                    className="text-muted-foreground hover:text-secondary transition-colors"
                   >
                     hello@imaginationagency.com
                   </a>
@@ -61,30 +65,32 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#FF5722]/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-[#FF5722]" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Phone</p>
                   <a
-                    href="tel:+1234567890"
-                    className="text-muted-foreground hover:text-[#FF5722] transition-colors"
+                    href="tel:+966500000000"
+                    className="text-muted-foreground hover:text-secondary transition-colors"
                   >
-                    +1 (234) 567-890
+                    {/* (تعديل) رقم سعودي افتراضي */}
+                    +966 50 000 0000
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#FF5722]/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-[#FF5722]" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Location</p>
                   <p className="text-muted-foreground">
-                    123 Creative Street, Design District
+                    {/* (تعديل) العنوان سعودي */}
+                    Riyadh, Saudi Arabia
                     <br />
-                    New York, NY 10001
+                    Vision 2030 Hub
                   </p>
                 </div>
               </div>
@@ -110,7 +116,8 @@ export function Contact() {
                   <Input
                     id="name"
                     placeholder="Your name"
-                    className="h-14 bg-secondary/50 border-0 focus-visible:ring-[#FF5722] placeholder:text-muted-foreground/50"
+                    // (تعديل) الإطار لما تضغطي يبقى بنفسجي
+                    className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -124,7 +131,7 @@ export function Contact() {
                     id="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="h-14 bg-secondary/50 border-0 focus-visible:ring-[#FF5722] placeholder:text-muted-foreground/50"
+                    className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50"
                   />
                 </div>
               </div>
@@ -139,7 +146,7 @@ export function Contact() {
                 <Input
                   id="subject"
                   placeholder="Project inquiry"
-                  className="h-14 bg-secondary/50 border-0 focus-visible:ring-[#FF5722] placeholder:text-muted-foreground/50"
+                  className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50"
                 />
               </div>
 
@@ -154,14 +161,15 @@ export function Contact() {
                   id="message"
                   placeholder="Tell us about your project..."
                   rows={6}
-                  className="bg-secondary/50 border-0 focus-visible:ring-[#FF5722] placeholder:text-muted-foreground/50 resize-none"
+                  className="bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 resize-none"
                 />
               </div>
 
               <Button
                 type="submit"
                 size="lg"
-                className="w-full h-14 bg-[#FF5722] text-white hover:bg-[#FF5722]/90 font-medium rounded-xl"
+                // (تعديل) زرار الإرسال بنفسجي
+                className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-medium rounded-xl"
               >
                 Send Message
               </Button>

@@ -32,7 +32,7 @@ export function Header() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/90 backdrop-blur-md shadow-sm"
+            ? "bg-background/90 backdrop-blur-md shadow-sm border-b border-border/10"
             : "bg-transparent"
         }`}
       >
@@ -40,8 +40,9 @@ export function Header() {
           <nav className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#FF5722] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">I</span>
+              {/* هنا غيرنا الخلفية للون البراند البنفسجي */}
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-xl">I</span>
               </div>
               <span className="font-[family-name:var(--font-heading)] font-bold text-xl text-foreground">
                 Imagination
@@ -54,7 +55,8 @@ export function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-foreground/80 hover:text-[#FF5722] transition-colors font-medium"
+                  // هنا خلينا الهوفر يقلب أخضر (secondary)
+                  className="text-foreground/80 hover:text-secondary transition-colors font-medium"
                 >
                   {link.name}
                 </a>
@@ -63,7 +65,8 @@ export function Header() {
 
             {/* CTA Button */}
             <div className="hidden md:block">
-              <Button className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6">
+              {/* هنا غيرنا الزرار للون البراند عشان ينور */}
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 shadow-md hover:shadow-lg transition-all">
                 Start a Project
               </Button>
             </div>
@@ -72,13 +75,13 @@ export function Header() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2"
+              className="md:hidden p-2 text-foreground"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-foreground" />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6 h-6 text-foreground" />
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </nav>
@@ -104,7 +107,8 @@ export function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-[family-name:var(--font-heading)] font-semibold text-foreground hover:text-[#FF5722] transition-colors"
+                  // وبرضه هنا الهوفر أخضر
+                  className="text-2xl font-[family-name:var(--font-heading)] font-semibold text-foreground hover:text-secondary transition-colors"
                 >
                   {link.name}
                 </motion.a>
@@ -115,7 +119,8 @@ export function Header() {
                 transition={{ delay: 0.4 }}
                 className="mt-6"
               >
-                <Button className="w-full h-14 bg-[#FF5722] text-white hover:bg-[#FF5722]/90 rounded-full text-lg font-medium">
+                {/* وزرار الموبايل كمان بقى بنفسجي */}
+                <Button className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full text-lg font-medium shadow-lg">
                   Start a Project
                 </Button>
               </motion.div>
