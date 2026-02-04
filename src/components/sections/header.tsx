@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
+// 1. القائمة بقت تحتوي على العربي والإنجليزي مع بعض
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { nameAr: "خدماتنا", nameEn: "Services", href: "#services" },
+  { nameAr: "أعمالنا", nameEn: "Portfolio", href: "#portfolio" },
+  { nameAr: "من نحن", nameEn: "About", href: "#about" },
+  { nameAr: "تواصل معنا", nameEn: "Contact", href: "#contact" },
 ];
 
 export function Header() {
@@ -37,37 +39,47 @@ export function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
-          <nav className="flex items-center justify-between h-20">
+          {/* زودنا الارتفاع شوية (h-24) عشان الكلام بقى سطرين */}
+          <nav className="flex items-center justify-between h-24">
+            
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2">
-              {/* هنا غيرنا الخلفية للون البراند البنفسجي */}
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">I</span>
+            <a href="/" className="flex items-center gap-3">
+              <div className="relative w-32 h-10">
+                <Image 
+                  src="/logo-full.svg" 
+                  alt="Imagination Logo" 
+                  fill 
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <span className="font-[family-name:var(--font-heading)] font-bold text-xl text-foreground">
-                Imagination
-              </span>
             </a>
 
-            {/* Desktop Nav */}
+            {/* Desktop Nav (Bilingual) */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
-                  key={link.name}
+                  key={link.nameEn}
                   href={link.href}
-                  // هنا خلينا الهوفر يقلب أخضر (secondary)
-                  className="text-foreground/80 hover:text-secondary transition-colors font-medium"
+                  className="group flex flex-col items-center text-center transition-colors"
                 >
-                  {link.name}
+                  {/* العربي بخط font-arabic */}
+                  <span className="font-[family-name:var(--font-arabic)] font-medium text-base text-foreground group-hover:text-secondary">
+                    {link.nameAr}
+                  </span>
+                  {/* الإنجليزي بخط font-english ولون أخف */}
+                  <span className="font-[family-name:var(--font-english)] text-[10px] font-medium tracking-wider text-muted-foreground uppercase group-hover:text-secondary/80">
+                    {link.nameEn}
+                  </span>
                 </a>
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button (Bilingual) */}
             <div className="hidden md:block">
-              {/* هنا غيرنا الزرار للون البراند عشان ينور */}
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 shadow-md hover:shadow-lg transition-all">
-                Start a Project
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-6 h-auto flex flex-col items-center leading-none gap-1 shadow-md">
+                <span className="font-[family-name:var(--font-arabic)] text-sm font-bold">ابدأ مشروعك</span>
+                <span className="font-[family-name:var(--font-english)] text-[10px] tracking-wide opacity-90 uppercase">Start a Project</span>
               </Button>
             </div>
 
@@ -78,11 +90,7 @@ export function Header() {
               className="md:hidden p-2 text-foreground"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </nav>
         </div>
@@ -96,34 +104,35 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-background pt-28 px-6 md:hidden"
           >
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8 items-center">
               {navLinks.map((link, index) => (
                 <motion.a
-                  key={link.name}
+                  key={link.nameEn}
                   href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  // وبرضه هنا الهوفر أخضر
-                  className="text-2xl font-[family-name:var(--font-heading)] font-semibold text-foreground hover:text-secondary transition-colors"
+                  className="flex flex-col items-center gap-1 group"
                 >
-                  {link.name}
+                  {/* العربي */}
+                  <span className="font-[family-name:var(--font-arabic)] text-2xl font-bold text-foreground group-hover:text-secondary">
+                    {link.nameAr}
+                  </span>
+                  {/* الإنجليزي */}
+                  <span className="font-[family-name:var(--font-english)] text-sm font-medium tracking-widest text-muted-foreground uppercase">
+                    {link.nameEn}
+                  </span>
                 </motion.a>
               ))}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6"
-              >
-                {/* وزرار الموبايل كمان بقى بنفسجي */}
-                <Button className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full text-lg font-medium shadow-lg">
-                  Start a Project
+              <div className="mt-4 w-full">
+                <Button className="w-full bg-primary hover:bg-primary/90 rounded-full py-8 h-auto flex flex-col gap-2">
+                    <span className="font-[family-name:var(--font-arabic)] text-lg font-bold">ابدأ مشروعك</span>
+                    <span className="font-[family-name:var(--font-english)] text-xs tracking-wide uppercase">Start a Project</span>
                 </Button>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         )}

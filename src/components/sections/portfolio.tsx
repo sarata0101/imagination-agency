@@ -1,48 +1,62 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
+// 1. بيانات المشاريع (عربي + إنجليزي)
 const projects = [
   {
-    title: "Luxe Brand Identity",
-    category: "Branding",
+    titleAr: "هوية تجارية فاخرة",
+    titleEn: "Luxe Brand Identity",
+    categoryAr: "هوية بصرية",
+    categoryEn: "Branding",
     image: "/portfolio/project-1.jpg",
     size: "large",
   },
   {
-    title: "Sonic Waves Campaign",
-    category: "Audio Production",
+    titleAr: "حملة الموجات الصوتية",
+    titleEn: "Sonic Waves Campaign",
+    categoryAr: "إنتاج صوتي",
+    categoryEn: "Audio Production",
     image: "/portfolio/project-2.jpg",
     size: "small",
   },
   {
-    title: "Urban Photography",
-    category: "Visual Production",
+    titleAr: "تصوير عمراني",
+    titleEn: "Urban Photography",
+    categoryAr: "إنتاج مرئي",
+    categoryEn: "Visual Production",
     image: "/portfolio/project-3.jpg",
     size: "small",
   },
   {
-    title: "Digital Experience",
-    category: "Branding",
+    titleAr: "تجربة رقمية",
+    titleEn: "Digital Experience",
+    categoryAr: "هوية بصرية",
+    categoryEn: "Branding",
     image: "/portfolio/project-4.jpg",
     size: "medium",
   },
   {
-    title: "Motion Graphics Reel",
-    category: "Visual Production",
+    titleAr: "موشن جرافيك",
+    titleEn: "Motion Graphics Reel",
+    categoryAr: "إنتاج مرئي",
+    categoryEn: "Visual Production",
     image: "/portfolio/project-5.jpg",
     size: "medium",
   },
   {
-    title: "Artisan Coffee Co.",
-    category: "Branding",
+    titleAr: "قهوة أرتيزان",
+    titleEn: "Artisan Coffee Co.",
+    categoryAr: "هوية بصرية",
+    categoryEn: "Branding",
     image: "/portfolio/project-6.jpg",
     size: "large",
   },
 ];
 
-const containerVariants = {
+// 2. تعريف الحركات (Strict Typing)
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -52,7 +66,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -66,25 +80,37 @@ const itemVariants = {
 
 export function Portfolio() {
   return (
-    // (تعديل) الخلفية خليناها رمادي فاتح جداً بدل الأخضر الصريح
     <section className="py-32 px-6 bg-muted/20">
       <div className="max-w-7xl mx-auto">
+        
+        {/* عنوان القسم (عربي + إنجليزي) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-20 flex flex-col items-center"
         >
-          {/* (تعديل) العنوان الصغير أخضر */}
-          <span className="text-sm font-medium tracking-widest uppercase text-secondary">
-            Our Portfolio
-          </span>
-          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-foreground">
-            Selected Works
+          <div className="flex flex-col items-center mb-4">
+            <span className="text-sm font-[family-name:var(--font-arabic)] font-medium tracking-wide text-secondary mb-1">
+              أعمالنــا
+            </span>
+            <span className="text-[10px] font-[family-name:var(--font-english)] tracking-[0.2em] uppercase text-secondary/70">
+              Our Portfolio
+            </span>
+          </div>
+          
+          <h2 className="flex flex-col items-center gap-2 font-bold text-foreground">
+            <span className="font-[family-name:var(--font-arabic)] text-4xl md:text-5xl">
+              مختارات من أعمالنا
+            </span>
+            <span className="font-[family-name:var(--font-english)] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+              Selected Works
+            </span>
           </h2>
         </motion.div>
 
+        {/* شبكة المشاريع */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -92,9 +118,9 @@ export function Portfolio() {
           viewport={{ once: true }}
           className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
-              key={project.title}
+              key={project.titleEn}
               variants={itemVariants}
               className="group relative break-inside-avoid overflow-hidden rounded-2xl cursor-pointer"
             >
@@ -109,43 +135,57 @@ export function Portfolio() {
               >
                 <Image
                   src={project.image || "/placeholder.svg"}
-                  alt={project.title}
+                  alt={project.titleEn}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 
-                {/* (تعديل) الطبقة الشفافة بقت بنفسجي غامق عشان البراندنج */}
+                {/* الطبقة الشفافة (بنفسجي غامق) */}
                 <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                 
-                {/* Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
-                  {/* (تعديل) نوع المشروع أخضر فاتح ينور على الخلفية البنفسجي */}
-                  <span className="text-secondary text-sm font-medium tracking-wide uppercase mb-2">
-                    {project.category}
-                  </span>
-                  <h3 className="font-[family-name:var(--font-heading)] text-xl md:text-2xl font-semibold text-white">
-                    {project.title}
+                {/* المحتوى عند الهوفر */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end items-start text-right opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+                  
+                  {/* التصنيف (عربي + إنجليزي) */}
+                  <div className="flex flex-col items-start mb-2">
+                    <span className="font-[family-name:var(--font-arabic)] text-secondary text-sm font-bold tracking-wide">
+                      {project.categoryAr}
+                    </span>
+                    <span className="font-[family-name:var(--font-english)] text-secondary/80 text-[10px] uppercase tracking-wider">
+                      {project.categoryEn}
+                    </span>
+                  </div>
+
+                  {/* اسم المشروع (عربي + إنجليزي) */}
+                  <h3 className="flex flex-col gap-1 font-semibold text-white">
+                    <span className="font-[family-name:var(--font-arabic)] text-xl md:text-2xl">
+                      {project.titleAr}
+                    </span>
+                    <span className="font-[family-name:var(--font-english)] text-sm opacity-80 uppercase tracking-wide">
+                      {project.titleEn}
+                    </span>
                   </h3>
                 </div>
 
-                {/* (تعديل) الزاوية الديكورية بقت أخضر */}
+                {/* الزاوية الديكورية (أخضر) */}
                 <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </motion.div>
           ))}
         </motion.div>
 
+        {/* زرار مشاهدة الكل */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          className="text-center mt-16 flex justify-center"
         >
-          {/* (تعديل) الزرار بقى بوردر بنفسجي وكتابة بنفسجي */}
-          <button className="px-8 py-4 border-2 border-primary text-primary font-medium rounded-full hover:bg-primary hover:text-white transition-colors duration-300">
-            View All Projects
+          <button className="px-10 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 rounded-full flex flex-col items-center gap-1 group">
+            <span className="font-[family-name:var(--font-arabic)] text-lg font-bold">شاهد كل الأعمال</span>
+            <span className="font-[family-name:var(--font-english)] text-xs uppercase tracking-widest opacity-80 group-hover:opacity-100">View All Projects</span>
           </button>
         </motion.div>
       </div>

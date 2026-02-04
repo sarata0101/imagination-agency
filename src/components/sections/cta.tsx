@@ -5,18 +5,20 @@ import { Button } from "@/components/ui/button";
 
 export function CTA() {
   return (
-    // (تعديل) الخلفية بنفسجي عشان تخطف العين وتفصل بين الأقسام
+    // الخلفية بنفسجي (Primary) عشان تفصل بين الأقسام وتخطف العين
     <section className="relative py-40 px-6 bg-primary overflow-hidden">
-      {/* Arabic calligraphy inspired decorative elements */}
+      
+      {/* =========================================================
+          1. الزخارف الخلفية (نفس اللي في الكود بتاعك لأنها ممتازة)
+         ========================================================= */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Flowing curved lines inspired by Arabic script */}
+        {/* خطوط منحنية انسيابية */}
         <svg
           className="absolute top-0 left-0 w-full h-full opacity-10"
           viewBox="0 0 1200 600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Flowing calligraphic curves */}
           <path
             d="M0,300 Q200,100 400,300 T800,300 T1200,300"
             stroke="white"
@@ -35,7 +37,7 @@ export function CTA() {
             strokeWidth="2"
             fill="none"
           />
-          {/* Decorative dots like Arabic diacritics */}
+          {/* نقاط زخرفية */}
           <circle cx="400" cy="250" r="8" fill="white" />
           <circle cx="800" cy="280" r="6" fill="white" />
           <circle cx="600" cy="200" r="4" fill="white" />
@@ -43,7 +45,7 @@ export function CTA() {
           <circle cx="1000" cy="240" r="7" fill="white" />
         </svg>
         
-        {/* Large decorative swoosh */}
+        {/* زخرفة خضراء يمين */}
         <motion.div
           initial={{ opacity: 0, pathLength: 0 }}
           whileInView={{ opacity: 0.1, pathLength: 1 }}
@@ -54,8 +56,7 @@ export function CTA() {
           <svg width="400" height="300" viewBox="0 0 400 300" fill="none">
             <path
               d="M10,150 Q100,50 200,150 Q300,250 390,150"
-              // (تعديل) الخطوط الزخرفية بالأخضر
-              stroke="#4fb27d" 
+              stroke="#4fb27d" // لون أخضر (Secondary)
               strokeWidth="4"
               fill="none"
               strokeLinecap="round"
@@ -63,7 +64,7 @@ export function CTA() {
           </svg>
         </motion.div>
 
-        {/* Right side decorative element */}
+        {/* زخرفة خضراء يسار */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.1 }}
@@ -74,7 +75,6 @@ export function CTA() {
           <svg width="300" height="400" viewBox="0 0 300 400" fill="none">
             <path
               d="M290,10 Q150,100 290,200 Q150,300 290,390"
-              // (تعديل) الخطوط الزخرفية بالأخضر
               stroke="#4fb27d"
               strokeWidth="3"
               fill="none"
@@ -84,6 +84,9 @@ export function CTA() {
         </motion.div>
       </div>
 
+      {/* =========================================================
+          2. المحتوى الرئيسي (عربي + إنجليزي)
+         ========================================================= */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -91,47 +94,49 @@ export function CTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Arabic calligraphy style heading */}
-          <div className="mb-8">
-            {/* (تعديل) الكلمة العربي بالأخضر */}
-            <span className="text-secondary text-lg md:text-xl font-medium tracking-wider">
-              لنتخيل معاً
+          {/* العنوان الرئيسي */}
+          <h2 className="flex flex-col gap-4 font-bold leading-none">
+            {/* العربي الكبير */}
+            <span className="font-[family-name:var(--font-arabic)] text-5xl sm:text-7xl md:text-8xl text-white">
+              دعنـا نتخيـل <span className="text-secondary">معـاً</span>
             </span>
-          </div>
-          
-          {/* (تعديل) العنوان الأساسي أبيض (عشان الخلفية بنفسجي) */}
-          <h2 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] tracking-tight">
-            {"Let's Imagine"}
-            <br />
-            {/* (تعديل) كلمة Together بالأخضر */}
-            <span className="text-secondary">Together</span>
+            
+            {/* الإنجليزي تحته */}
+            <span className="font-[family-name:var(--font-english)] text-3xl sm:text-5xl md:text-6xl text-white/80 uppercase tracking-tight">
+              Let's Imagine <span className="text-secondary">Together</span>
+            </span>
           </h2>
 
-          <p className="mt-8 text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed">
-            Ready to bring your vision to life? We're here to transform your ideas
-            into captivating realities that leave lasting impressions.
-          </p>
+          {/* الوصف */}
+          <div className="mt-10 max-w-2xl mx-auto">
+            <p className="font-[family-name:var(--font-arabic)] text-xl md:text-2xl text-white/90 mb-3 leading-relaxed">
+              جاهز لتحويل رؤيتك إلى واقع؟ نحن هنا لنصنع تجارب تترك أثراً لا يُنسى.
+            </p>
+            <p className="font-[family-name:var(--font-english)] text-base md:text-lg text-white/60 leading-relaxed">
+              Ready to bring your vision to life? We're here to transform your ideas into captivating realities.
+            </p>
+          </div>
 
+          {/* الزرار */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12"
+            className="mt-14"
           >
             <Button
               size="lg"
-              // (تعديل) الزرار أخضر والكلام أبيض
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-10 py-7 text-lg font-medium rounded-full shadow-lg"
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-10 py-8 rounded-full shadow-2xl hover:shadow-secondary/20 transition-all flex flex-col items-center gap-1 mx-auto h-auto"
             >
-              Start a Project
+              <span className="font-[family-name:var(--font-arabic)] text-xl font-bold">ابدأ مشروعك</span>
+              <span className="font-[family-name:var(--font-english)] text-xs uppercase tracking-widest opacity-90">Start a Project</span>
             </Button>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Bottom decorative border */}
-      {/* (تعديل) الخط اللي تحت خالص تدرج أخضر */}
+      {/* الخط المتدرج في الأسفل */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50" />
     </section>
   );

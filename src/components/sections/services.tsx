@@ -1,32 +1,35 @@
 "use client";
 
 import { Video, Headphones, Palette } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-// دي القائمة اللي هنغير كلامها لما ابن خالتك يبعت المحتوى الجديد
-// حالياً سيبناها زي ما هي بس جهزنا المكان
+// 1. القائمة الجديدة (فيها العربي والإنجليزي)
 const services = [
   {
     icon: Video,
-    title: "Visual Production",
-    description:
-      "From concept to screen, we create stunning visual content that captures attention and tells your story with cinematic excellence.",
+    titleAr: "الإنتاج المرئي",
+    titleEn: "Visual Production",
+    descAr: "من الفكرة إلى الشاشة، نصنع محتوى بصرياً مذهلاً يروي قصتك ببراعة سينمائية تخطف الأنظار.",
+    descEn: "From concept to screen, we create stunning visual content that captures attention and tells your story with cinematic excellence.",
   },
   {
     icon: Headphones,
-    title: "Audio Production",
-    description:
-      "Immersive soundscapes and crystal-clear audio that elevate your brand's voice and create memorable auditory experiences.",
+    titleAr: "الإنتاج الصوتي",
+    titleEn: "Audio Production",
+    descAr: "تجارب صوتية غامرة وهندسة دقيقة ترفع من صوت علامتك التجارية وتخلق أثراً لا يُنسى.",
+    descEn: "Immersive soundscapes and crystal-clear audio that elevate your brand's voice and create memorable auditory experiences.",
   },
   {
     icon: Palette,
-    title: "Brand Crafting",
-    description:
-      "Strategic brand development that distills your essence into a cohesive visual identity, positioning you for lasting impact.",
+    titleAr: "صياغة الهوية",
+    titleEn: "Brand Crafting",
+    descAr: "تطوير استراتيجي يبلور جوهرك في هوية بصرية متماسكة، لتضعك في مكانة متميزة ودائمة.",
+    descEn: "Strategic brand development that distills your essence into a cohesive visual identity, positioning you for lasting impact.",
   },
 ];
 
-const containerVariants = {
+// 2. تعريف الحركات (مع تحديد النوع Variants عشان الخطأ يختفي)
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -36,7 +39,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -52,22 +55,35 @@ export function Services() {
   return (
     <section className="py-32 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
+        
+        {/* عنوان القسم (عربي + إنجليزي) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-20 flex flex-col items-center"
         >
-          {/* (تعديل) العنوان الصغير بالأخضر */}
-          <span className="text-sm font-medium tracking-widest uppercase text-secondary">
-            What We Do
-          </span>
-          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-foreground">
-            Our Services
+          <div className="flex flex-col items-center mb-4">
+            <span className="text-sm font-[family-name:var(--font-arabic)] font-medium tracking-wide text-secondary mb-1">
+              ماذا نقدم
+            </span>
+            <span className="text-[10px] font-[family-name:var(--font-english)] tracking-[0.2em] uppercase text-secondary/70">
+              What We Do
+            </span>
+          </div>
+          
+          <h2 className="flex flex-col items-center gap-2 font-bold text-foreground">
+            <span className="font-[family-name:var(--font-arabic)] text-4xl md:text-5xl">
+              خدماتنــا
+            </span>
+            <span className="font-[family-name:var(--font-english)] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+              Our Services
+            </span>
           </h2>
         </motion.div>
 
+        {/* كروت الخدمات */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -75,51 +91,66 @@ export function Services() {
           viewport={{ once: true }}
           className="grid md:grid-cols-3 gap-8"
         >
-          {services.map((service) => (
-            <motion.div
-              key={service.title}
-              variants={cardVariants}
-              // (تعديل) البرواز لما الماوس يقف عليه يبقى بنفسجي خفيف
-              className="group relative p-10 bg-card border border-border rounded-2xl hover:border-primary/30 transition-all duration-500"
-            >
-              {/* (تعديل) الإضاءة الخلفية بنفسجي */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-              
-              <div className="relative">
-                {/* (تعديل) خلفية الأيقونة بنفسجي هادي */}
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  {/* (تعديل) الأيقونة نفسها بنفسجي قوي */}
-                  <service.icon className="w-7 h-7 text-primary" />
-                </div>
+          {services.map((service) => {
+            // تحويل الأيقونة لمكون عشان نقدر نستخدمها
+            const IconComponent = service.icon;
+            
+            return (
+              <motion.div
+                key={service.titleEn}
+                variants={cardVariants}
+                className="group relative p-10 bg-card border border-border rounded-2xl hover:border-primary/30 transition-all duration-500"
+              >
+                {/* الإضاءة الخلفية */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 
-                <h3 className="font-[family-name:var(--font-heading)] text-2xl font-semibold text-foreground mb-4">
-                  {service.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
+                <div className="relative flex flex-col items-start text-right"> 
+                  {/* الأيقونة */}
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                    <IconComponent className="w-7 h-7 text-primary" />
+                  </div>
+                  
+                  {/* العنوان */}
+                  <div className="mb-4 w-full">
+                    <h3 className="font-[family-name:var(--font-arabic)] text-2xl font-bold text-foreground mb-1">
+                      {service.titleAr}
+                    </h3>
+                    <p className="font-[family-name:var(--font-english)] text-sm font-medium text-muted-foreground/60 uppercase tracking-wide">
+                      {service.titleEn}
+                    </p>
+                  </div>
+                  
+                  {/* الوصف */}
+                  <div className="mb-6">
+                    <p className="font-[family-name:var(--font-arabic)] text-muted-foreground leading-relaxed text-lg mb-2">
+                      {service.descAr}
+                    </p>
+                    <p className="font-[family-name:var(--font-english)] text-sm text-muted-foreground/60 leading-relaxed dir-ltr text-left">
+                      {service.descEn}
+                    </p>
+                  </div>
 
-                {/* (تعديل) كلمة Learn more بالأخضر عشان تشد العين */}
-                <div className="mt-6 flex items-center text-secondary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-sm">Learn more</span>
-                  <svg
-                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
+                  {/* رابط اقرأ المزيد */}
+                  <div className="mt-auto flex items-center text-secondary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2">
+                    <span className="font-[family-name:var(--font-arabic)] text-sm">اقرأ المزيد</span>
+                    <svg
+                      className="w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

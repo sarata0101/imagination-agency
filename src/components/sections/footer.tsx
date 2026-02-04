@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import Image from "next/image";
 
+// 1. روابط السوشيال ميديا
 const socialLinks = [
   { name: "Instagram", icon: Instagram, href: "#" },
   { name: "Twitter", icon: Twitter, href: "#" },
@@ -10,19 +12,48 @@ const socialLinks = [
   { name: "YouTube", icon: Youtube, href: "#" },
 ];
 
-const footerLinks = {
-  Services: ["Visual Production", "Audio Production", "Brand Crafting", "Consulting"],
-  Company: ["About Us", "Our Team", "Careers", "Blog"],
-  Support: ["Contact", "FAQ", "Privacy Policy", "Terms of Service"],
-};
+// 2. الروابط الداخلية (عربي + إنجليزي)
+const footerLinks = [
+  {
+    titleAr: "خدماتنا",
+    titleEn: "Services",
+    links: [
+      { ar: "الإنتاج المرئي", en: "Visual Production" },
+      { ar: "الإنتاج الصوتي", en: "Audio Production" },
+      { ar: "صياغة الهوية", en: "Brand Crafting" },
+      { ar: "الاستشارات", en: "Consulting" },
+    ],
+  },
+  {
+    titleAr: "الشركة",
+    titleEn: "Company",
+    links: [
+      { ar: "من نحن", en: "About Us" },
+      { ar: "فريق العمل", en: "Our Team" },
+      { ar: "الوظائف", en: "Careers" },
+      { ar: "المدونة", en: "Blog" },
+    ],
+  },
+  {
+    titleAr: "الدعم",
+    titleEn: "Support",
+    links: [
+      { ar: "تواصل معنا", en: "Contact" },
+      { ar: "الأسئلة الشائعة", en: "FAQ" },
+      { ar: "سياسة الخصوصية", en: "Privacy Policy" },
+      { ar: "الشروط والأحكام", en: "Terms of Service" },
+    ],
+  },
+];
 
 export function Footer() {
   return (
     // الخلفية سوداء (foreground) والكلام أبيض (background)
     <footer className="bg-foreground text-background py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Brand Column */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 text-right">
+          
+          {/* العمود الأول: البراند والوصف */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -30,26 +61,35 @@ export function Footer() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-1"
           >
-            <div className="flex items-center gap-2 mb-6">
-              {/* (تعديل) خلفية اللوجو بنفسجي */}
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">I</span>
+            {/* اللوجو */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="relative w-32 h-10 brightness-0 invert"> {/* (invert) عشان اللوجو يبقى أبيض */}
+                <Image 
+                  src="/logo-full.svg" 
+                  alt="Imagination Logo" 
+                  fill 
+                  className="object-contain"
+                />
               </div>
-              <span className="font-[family-name:var(--font-heading)] font-bold text-xl">
-                Imagination
-              </span>
             </div>
-            <p className="text-background/60 leading-relaxed mb-6">
-              Turning passion into reality through bold creativity and
-              exceptional craftsmanship.
+
+            {/* الوصف (عربي + إنجليزي) */}
+            <p className="text-background/60 leading-relaxed mb-6 flex flex-col gap-2">
+              <span className="font-[family-name:var(--font-arabic)] text-lg">
+                نحول الشغف إلى واقع من خلال إبداع جريء وحرفية استثنائية.
+              </span>
+              <span className="font-[family-name:var(--font-english)] text-sm opacity-60">
+                Turning passion into reality through bold creativity and exceptional craftsmanship.
+              </span>
             </p>
+
+            {/* أيقونات السوشيال ميديا */}
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  // (تعديل) لما الماوس يقف على الأيقونة تبقى بنفسجي
-                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors duration-300"
                   aria-label={social.name}
                 >
                   <social.icon className="w-5 h-5" />
@@ -58,27 +98,39 @@ export function Footer() {
             </div>
           </motion.div>
 
-          {/* Link Columns */}
-          {Object.entries(footerLinks).map(([title, links], index) => (
+          {/* أعمدة الروابط */}
+          {footerLinks.map((section, index) => (
             <motion.div
-              key={title}
+              key={section.titleEn}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
             >
-              <h4 className="font-[family-name:var(--font-heading)] font-semibold text-lg mb-6">
-                {title}
+              {/* عنوان القسم (عربي + إنجليزي) */}
+              <h4 className="flex flex-col gap-1 mb-6 font-bold border-b border-background/10 pb-2">
+                <span className="font-[family-name:var(--font-arabic)] text-lg text-white">
+                  {section.titleAr}
+                </span>
+                <span className="font-[family-name:var(--font-english)] text-xs text-background/50 uppercase tracking-widest">
+                  {section.titleEn}
+                </span>
               </h4>
+
+              {/* القائمة */}
               <ul className="space-y-4">
-                {links.map((link) => (
-                  <li key={link}>
+                {section.links.map((link) => (
+                  <li key={link.en}>
                     <a
                       href="#"
-                      // (تعديل) الروابط لما تقفي عليها تبقى أخضر
-                      className="text-background/60 hover:text-secondary transition-colors"
+                      className="group flex flex-col gap-0.5 text-background/60 hover:text-secondary transition-colors duration-300"
                     >
-                      {link}
+                      <span className="font-[family-name:var(--font-arabic)] text-base group-hover:translate-x-[-4px] transition-transform">
+                        {link.ar}
+                      </span>
+                      <span className="font-[family-name:var(--font-english)] text-[10px] opacity-50 uppercase tracking-wide group-hover:opacity-80">
+                        {link.en}
+                      </span>
                     </a>
                   </li>
                 ))}
@@ -87,15 +139,28 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom Bar */}
+        {/* الشريط السفلي (Copyright) */}
         <div className="pt-8 border-t border-background/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-background/40 text-sm">
-              &copy; {new Date().getFullYear()} Imagination Agency. All rights reserved.
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
+            
+            {/* حقوق النشر */}
+            <p className="text-background/40 text-sm flex flex-col md:flex-row gap-1">
+              <span className="font-[family-name:var(--font-arabic)]">
+                &copy; {new Date().getFullYear()} وكالة تخيُّل. جميع الحقوق محفوظة.
+              </span>
+              <span className="font-[family-name:var(--font-english)] opacity-60">
+                | All rights reserved.
+              </span>
             </p>
-            <p className="text-background/40 text-sm">
-              {/* (تعديل) غيرنا المكان للسعودية حسب الملف */}
-              Crafted with passion in Saudi Arabia
+
+            {/* صنع في السعودية */}
+            <p className="text-background/40 text-sm flex items-center gap-2">
+              <span className="font-[family-name:var(--font-english)] opacity-60 uppercase tracking-widest text-[10px]">
+                Crafted with passion in
+              </span>
+              <span className="font-[family-name:var(--font-arabic)] text-secondary font-bold">
+                السعودية 🇸🇦
+              </span>
             </p>
           </div>
         </div>

@@ -1,55 +1,70 @@
-import React from "react"
-import type { Metadata } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import React from "react";
+import type { Metadata } from "next";
+import { Outfit, IBM_Plex_Sans_Arabic } from "next/font/google";
+import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
-const spaceGrotesk = Space_Grotesk({ 
+// 1. إعداد الخط الإنجليزي (سميناه fontEnglish عشان نستخدمه للنصوص الإنجليزية)
+const fontEnglish = Outfit({
   subsets: ["latin"],
-  variable: '--font-heading'
+  variable: "--font-english", // الاسم الجديد
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: '--font-sans'
+// 2. إعداد الخط العربي (سميناه fontArabic عشان نستخدمه للعناوين العربية)
+const fontArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-arabic", // الاسم الجديد
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: 'Imagination Agency | Turning Passion into Reality',
-  description: 'A creative branding agency specializing in visual production, audio production, and brand crafting.',
-  generator: 'v0.app',
+  // العنوان والوصف (ممكن يتغيروا لما ابن خالتك يختار الصيغة النهائية)
+  title: "وكالة تخيُّل | Imagination Agency",
+  description: "وكالة تصميم تجارب عالمية مقرها المملكة العربية السعودية. نحول الشغف إلى واقع. | Global experience design agency based in KSA.",
+  
+  // 3. أيقونة الموقع (Favicon)
   icons: {
     icon: [
+      { url: "/logo-icon.svg", type: "image/svg+xml" },
+    ],
+  },
+
+  // 4. إعدادات واتساب والسوشيال ميديا (عشان الصورة تظهر في الرابط)
+  openGraph: {
+    title: "وكالة تخيُّل | Imagination Agency",
+    description: "نحول الشغف إلى واقع. وكالة تصميم تجارب عالمية في السعودية.",
+    url: "https://imagination-agency.vercel.app",
+    siteName: "Imagination Agency",
+    images: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: "/social-preview.png", // ⚠️ تأكدي إنك حطيتي صورة PNG بالاسم ده في فولدر public
+        width: 1200,
+        height: 630,
+        alt: "Imagination Agency Preview",
       },
     ],
-    apple: '/apple-icon.png',
+    locale: "ar_SA",
+    type: "website",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+    <html lang="ar" dir="rtl" className="scroll-smooth">
+      <body
+        // 5. هنا ربطنا المتغيرات الجديدة بالموقع كله
+        className={`${fontArabic.variable} ${fontEnglish.variable} font-sans antialiased bg-background text-foreground`}
+      >
         {children}
         <Analytics />
         <SpeedInsights />
       </body>
     </html>
-  )
+  );
 }
