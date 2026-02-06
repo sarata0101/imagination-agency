@@ -105,7 +105,7 @@ export function Contact() {
                   <p className="text-muted-foreground font-[family-name:var(--font-arabic)] text-lg">
                     الرياض، المملكة العربية السعودية
                     <br />
-                    <span className="text-sm opacity-70">حي الملقا، طريق أنس بن مالك</span>
+
                   </p>
                 </div>
               </div>

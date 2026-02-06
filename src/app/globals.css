@@ -4,31 +4,52 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f6f5f5;       
-  --foreground: #1a1a1a;       
+  /* 1. الخلفية: بيج كريمي فاتح */
+  --background: #FAF9F6;       
+  /* 2. النص: أسود صريح */
+  --foreground: #1A1A1A;       
+
+  /* 3. الكروت: أبيض صريح عشان تبرز عن البيج */
   --card: #FFFFFF;
-  --card-foreground: #1a1a1a;
+  --card-foreground: #1A1A1A;
+
   --popover: #FFFFFF;
-  --popover-foreground: #1a1a1a;
-  --primary: #49368c;          
-  --primary-foreground: #FFFFFF; 
-  --secondary: #4fb27d;        
+  --popover-foreground: #1A1A1A;
+
+  /* 4. اللون الأساسي: أسود (للزراير والعناوين الكبيرة) */
+  --primary: #1A1A1A;          
+  --primary-foreground: #FFFFFF; /* النص أبيض فوق الأسود */
+
+  /* 5. اللون الثانوي: أحمر خافت (Terracotta) للمسات البسيطة */
+  --secondary: #8D5B4C;        
   --secondary-foreground: #FFFFFF;
-  --muted: #F5F5F5;
-  --muted-foreground: #6B6B6B;
-  --accent: #4fb27d;           /* 🟢 (تعديل) خليناه نفس الأخضر للتناسق */
+
+  /* لون العناصر الهادية (رمادي بيج فاتح) */
+  --muted: #EBEAE6;
+  --muted-foreground: #666666;
+
+  /* الـ Accent خليته أحمر خافت زي الثانوي */
+  --accent: #8D5B4C;           
   --accent-foreground: #FFFFFF;
+
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
+
   --border: #E5E5E5;
   --input: #E5E5E5;
-  --ring: #49368c;             /* 🟣 (تعديل) حدود الخانات بنفسجي */
+  
+  /* حلقة التركيز سوداء */
+  --ring: #1A1A1A;             
+
+  /* ألوان الشارتات (سيبناها زي ما هي) */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
   --radius: 0.5rem;
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -40,35 +61,39 @@
 }
 
 .dark {
-  --background: #050505;       /* أسود ملكي (مش مطفي) */
-  --foreground: #ffffff;       /* الكلام أبيض ناصع */
+  /* خلفية سوداء هادية (Soft Black) */
+  --background: #0F0F0F;       
+  /* الكلام بيج فاتح (عشان يبقى مريح للعين في الضلمة) */
+  --foreground: #FAF9F6;       
   
-  --card: #121212;             /* الكروت رمادي غامق جداً عشان تتميز عن الخلفية */
-  --card-foreground: #ffffff;
+  /* الكروت رمادي غامق */
+  --card: #1A1A1A;             
+  --card-foreground: #FAF9F6;
   
-  --popover: #121212;
-  --popover-foreground: #ffffff;
+  --popover: #1A1A1A;
+  --popover-foreground: #FAF9F6;
   
-  --primary: #49368c;          /* 💜 نفس البنفسجي بتاعنا */
-  --primary-foreground: #ffffff;
+  /* البرايمري بيقلب بيج فاتح عشان يبان على الأسود */
+  --primary: #FAF9F6;          
+  --primary-foreground: #1A1A1A; /* النص أسود */
   
-  --secondary: #4fb27d;        /* 💚 نفس الأخضر بتاعنا */
-  --secondary-foreground: #ffffff;
+  /* الثانوي يفضل أحمر خافت (بينور حلو في الدارك) */
+  --secondary: #8D5B4C;        
+  --secondary-foreground: #FFFFFF;
   
-  --muted: #2a2a2a;            /* رمادي غامق للفواصل */
-  --muted-foreground: #a3a3a3;
+  --muted: #262626;            
+  --muted-foreground: #A3A3A3;
   
-  --accent: #4fb27d;           /* 💚 الأخضر هنا بيبقى تحفة في الدارك */
-  --accent-foreground: #ffffff;
+  --accent: #8D5B4C;           
+  --accent-foreground: #FFFFFF;
   
-  --destructive: oklch(0.396 0.141 25.723); /* الأحمر للتحذير سيبيه زي ما هو */
+  --destructive: oklch(0.396 0.141 25.723); 
   --destructive-foreground: oklch(0.637 0.237 25.331);
   
-  --border: #2e2e2e;           /* حدود خفيفة جداً */
-  --input: #2e2e2e;
-  --ring: #49368c;             /* 💜 حلقة التركيز بنفسجي */
+  --border: #2E2E2E;           
+  --input: #2E2E2E;
+  --ring: #FAF9F6;             
   
-  /* ألوان الرسوم البيانية (Charts) سيبيها زي ما هي */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);

@@ -68,3 +68,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+// Force update colors - Final Version 🚀

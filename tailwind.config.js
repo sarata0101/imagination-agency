@@ -20,29 +20,45 @@ module.exports = {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
-        ring: "#49368c", // (تعديل) خليناه لون البراند البنفسجي
-        background: "#f6f5f5", // (تعديل) لون الخلفية الأوف وايت بتاعكم
-        foreground: "#1a1a1a", // لون الكلام (أسود غامق)
+        
+        // 1. حلقة التركيز (خليناها سوداء بدل البنفسجي)
+        ring: "#1A1A1A", 
+        
+        // 2. الخلفية (البيج الكريمي الجديد)
+        background: "#FAF9F6", 
+        
+        // 3. النصوص (أسود صريح)
+        foreground: "#1A1A1A", 
+        
+        // 4. اللون الأساسي (أسود للزراير)
         primary: {
-          DEFAULT: "#49368c", // (تعديل) اللون البنفسجي الأساسي
-          foreground: "#ffffff", // الكلام اللي فوقه يكون أبيض
+          DEFAULT: "#1A1A1A", 
+          foreground: "#ffffff", 
         },
+        
+        // 5. اللون الثانوي (الأحمر الخافت Terracotta)
         secondary: {
-          DEFAULT: "#4fb27d", // (تعديل) اللون الأخضر الثانوي
-          foreground: "#ffffff", // الكلام اللي فوقه يكون أبيض
+          DEFAULT: "#8D5B4C", 
+          foreground: "#ffffff", 
         },
+        
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        
+        // 6. اللون الهادي (بيج رمادي فاتح)
         muted: {
-          DEFAULT: "#f0f0f0", // لون رمادي فاتح جداً
+          DEFAULT: "#EBEAE6", 
           foreground: "hsl(var(--muted-foreground))",
         },
+        
+        // 7. اللمسات (نفس الأحمر الخافت)
         accent: {
-          DEFAULT: "#4fb27d", // (تعديل) خليناه الأخضر برضه عشان التناسق
+          DEFAULT: "#8D5B4C", 
           foreground: "#ffffff",
         },
+        
         popover: {
           DEFAULT: "#ffffff",
           foreground: "hsl(var(--popover-foreground))",
