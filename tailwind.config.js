@@ -21,24 +21,24 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         
-        // 1. حلقة التركيز (خليناها سوداء بدل البنفسجي)
-        ring: "#1A1A1A", 
+        // 1. حلقة التركيز (بيج غامق)
+        ring: "#998472", 
         
-        // 2. الخلفية (البيج الكريمي الجديد)
+        // 2. الخلفية (بيج كريمي)
         background: "#FAF9F6", 
         
-        // 3. النصوص (أسود صريح)
-        foreground: "#1A1A1A", 
+        // 3. النصوص (بني محروق - Dark Espresso)
+        foreground: "#2E2522", 
         
-        // 4. اللون الأساسي (أسود للزراير)
+        // 4. اللون الأساسي (بيج غامق - Dark Taupe)
         primary: {
-          DEFAULT: "#1A1A1A", 
+          DEFAULT: "#998472", 
           foreground: "#ffffff", 
         },
         
-        // 5. اللون الثانوي (الأحمر الخافت Terracotta)
+        // 5. اللون الثانوي (أحمر طوبي خافت - Terracotta)
         secondary: {
-          DEFAULT: "#8D5B4C", 
+          DEFAULT: "#C06C5B", 
           foreground: "#ffffff", 
         },
         
@@ -47,25 +47,25 @@ module.exports = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         
-        // 6. اللون الهادي (بيج رمادي فاتح)
+        // 6. اللون الهادي (بيج بني فاتح - مش رمادي)
         muted: {
-          DEFAULT: "#EBEAE6", 
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#E6DED5", 
+          foreground: "#6B5D55",
         },
         
-        // 7. اللمسات (نفس الأحمر الخافت)
+        // 7. اللمسات (Terracotta)
         accent: {
-          DEFAULT: "#8D5B4C", 
+          DEFAULT: "#C06C5B", 
           foreground: "#ffffff",
         },
         
         popover: {
           DEFAULT: "#ffffff",
-          foreground: "hsl(var(--popover-foreground))",
+          foreground: "#2E2522",
         },
         card: {
           DEFAULT: "#ffffff",
-          foreground: "hsl(var(--card-foreground))",
+          foreground: "#2E2522",
         },
       },
       borderRadius: {
