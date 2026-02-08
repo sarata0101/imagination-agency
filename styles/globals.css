@@ -6,37 +6,44 @@
 /* 1. تعريف الخط العربي Thmnayah */
 @font-face {
   font-family: 'Thmnayah';
+  /* الاسم لازم يكون زي الملف بالظبط thmanyahsans_regular.otf */
   src: url('/fonts/thmanyahsans_regular.otf') format('opentype');
-  font-weight: normal; /* ده للخط العادي */
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Thmnayah';
+  /* الاسم زي الملف thmanyahsans_bold.otf */
   src: url('/fonts/thmanyahsans_bold.otf') format('opentype');
-  font-weight: bold; /* ده للخط التقيل */
+  font-weight: bold;
   font-style: normal;
 }
 
 /* 2. تعريف الخط الإنجليزي Acumin */
+/* ركزي هنا: الحروف الكابيتال لازم تتكتب كابيتال زي الملف بالظبط */
 @font-face {
   font-family: 'Acumin';
-  src: url('/fonts/Acumin-RPro.otf') format('opentype');
+  src: url('/fonts/Acumin-RPro.otf') format('opentype'); /* A و R و P كابيتال */
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Acumin';
-  src: url('/fonts/Acumin-BdPro.otf') format('opentype');
+  src: url('/fonts/Acumin-BdPro.otf') format('opentype'); /* BdPro زي الملف */
   font-weight: bold;
 }
 
-/* 3. كلاس "الدلع" - لتفعيل حركة الحروف في العربي */
-/* جربي تضيفي الكلاس ده لأي عنوان عشان تشوفي النتيجة */
-.arabic-style {
-  font-family: 'Thmnayah', sans-serif;
-  /* جربي ss01 هي اللي غالبا بتعمل الحركة دي في الخطوط دي */
-  font-feature-settings: "ss01"; 
+/* 3. تحديث كلاس الدلع (الحركات) */
+/* زودتلك خواص زيادة عشان نضمن ان الحركة تظهر */
+@layer utilities {
+  .font-arabic-stylized {
+    font-family: 'Thmnayah', sans-serif;
+    /* بنجرب كذا كود عشان لو ss01 مش شغالة، الـ swsh تشتغل */
+    font-feature-settings: "ss01", "cv01", "swsh", "kern", "liga";
+    /* ده بيحسن شكل الحروف العربي جداً */
+    text-rendering: optimizeLegibility; 
+  }
 }
 
 :root {
