@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 
 export function CTA() {
   return (
-    // الخلفية بنفسجي (Primary) عشان تفصل بين الأقسام وتخطف العين
-    <section className="relative py-40 px-6 bg-primary overflow-hidden">
+    // الخلفية تحولت لـ Dark Taupe (#483C32) بدلاً من البنفسجي
+    <section className="relative py-40 px-6 bg-[#483C32] overflow-hidden">
       
       {/* =========================================================
-          1. الزخارف الخلفية (نفس اللي في الكود بتاعك لأنها ممتازة)
+          1. الزخارف الخلفية
          ========================================================= */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* خطوط منحنية انسيابية */}
@@ -45,7 +45,7 @@ export function CTA() {
           <circle cx="1000" cy="240" r="7" fill="white" />
         </svg>
         
-        {/* زخرفة خضراء يمين */}
+        {/* زخرفة يمين - تم تغيير اللون لـ Terracotta */}
         <motion.div
           initial={{ opacity: 0, pathLength: 0 }}
           whileInView={{ opacity: 0.1, pathLength: 1 }}
@@ -56,7 +56,7 @@ export function CTA() {
           <svg width="400" height="300" viewBox="0 0 400 300" fill="none">
             <path
               d="M10,150 Q100,50 200,150 Q300,250 390,150"
-              stroke="#4fb27d" // لون أخضر (Secondary)
+              stroke="#c06c5b" // Terracotta Color
               strokeWidth="4"
               fill="none"
               strokeLinecap="round"
@@ -64,7 +64,7 @@ export function CTA() {
           </svg>
         </motion.div>
 
-        {/* زخرفة خضراء يسار */}
+        {/* زخرفة يسار - تم تغيير اللون لـ Terracotta */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.1 }}
@@ -75,7 +75,7 @@ export function CTA() {
           <svg width="300" height="400" viewBox="0 0 300 400" fill="none">
             <path
               d="M290,10 Q150,100 290,200 Q150,300 290,390"
-              stroke="#4fb27d"
+              stroke="#c06c5b" // Terracotta Color
               strokeWidth="3"
               fill="none"
               strokeLinecap="round"
@@ -96,23 +96,25 @@ export function CTA() {
         >
           {/* العنوان الرئيسي */}
           <h2 className="flex flex-col gap-4 font-bold leading-none">
-            {/* العربي الكبير */}
-            <span className="font-[family-name:var(--font-arabic)] text-5xl sm:text-7xl md:text-8xl text-white">
-              دعنـا نتخيـل <span className="text-secondary">معـاً</span>
+            {/* العربي الكبير - تعديل الخط */}
+            <span className="font-arabic-stylized text-5xl sm:text-7xl md:text-8xl text-white">
+              دعنـا نتخيـل <span className="text-[#c06c5b]">معـاً</span>
             </span>
             
-            {/* الإنجليزي تحته */}
-            <span className="font-[family-name:var(--font-english)] text-3xl sm:text-5xl md:text-6xl text-white/80 uppercase tracking-tight">
-              Let's Imagine <span className="text-secondary">Together</span>
+            {/* الإنجليزي تحته - تعديل الخط */}
+            <span className="font-['Acumin'] text-3xl sm:text-5xl md:text-6xl text-white/80 uppercase tracking-tight">
+              Let's Imagine <span className="text-[#c06c5b]">Together</span>
             </span>
           </h2>
 
           {/* الوصف */}
           <div className="mt-10 max-w-2xl mx-auto">
-            <p className="font-[family-name:var(--font-arabic)] text-xl md:text-2xl text-white/90 mb-3 leading-relaxed">
+            {/* العربي - تعديل الخط */}
+            <p className="font-arabic-stylized text-xl md:text-2xl text-white/90 mb-3 leading-relaxed">
               جاهز لتحويل رؤيتك إلى واقع؟ نحن هنا لنصنع تجارب تترك أثراً لا يُنسى.
             </p>
-            <p className="font-[family-name:var(--font-english)] text-base md:text-lg text-white/60 leading-relaxed">
+            {/* الإنجليزي - تعديل الخط */}
+            <p className="font-['Acumin'] text-base md:text-lg text-white/60 leading-relaxed">
               Ready to bring your vision to life? We're here to transform your ideas into captivating realities.
             </p>
           </div>
@@ -125,19 +127,21 @@ export function CTA() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-14"
           >
+            {/* تعديل ألوان الزرار لـ Terracotta */}
             <Button
               size="lg"
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-10 py-8 rounded-full shadow-2xl hover:shadow-secondary/20 transition-all flex flex-col items-center gap-1 mx-auto h-auto"
+              className="bg-[#c06c5b] text-white hover:bg-[#c06c5b]/90 px-10 py-8 rounded-full shadow-2xl hover:shadow-[#c06c5b]/20 transition-all flex flex-col items-center gap-1 mx-auto h-auto"
             >
-              <span className="font-[family-name:var(--font-arabic)] text-xl font-bold">ابدأ مشروعك</span>
-              <span className="font-[family-name:var(--font-english)] text-xs uppercase tracking-widest opacity-90">Start a Project</span>
+              {/* تعديل الخطوط داخل الزرار */}
+              <span className="font-arabic-stylized text-xl font-bold">ابدأ مشروعك</span>
+              <span className="font-['Acumin'] text-xs uppercase tracking-widest opacity-90">Start a Project</span>
             </Button>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* الخط المتدرج في الأسفل */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50" />
+      {/* الخط المتدرج في الأسفل - تعديل لونه لـ Terracotta */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c06c5b] to-transparent opacity-50" />
     </section>
   );
 }

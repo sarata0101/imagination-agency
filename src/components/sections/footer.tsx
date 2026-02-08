@@ -75,10 +75,12 @@ export function Footer() {
 
             {/* الوصف (عربي + إنجليزي) */}
             <p className="text-background/60 leading-relaxed mb-6 flex flex-col gap-2">
-              <span className="font-[family-name:var(--font-arabic)] text-lg">
+              {/* العربي: تعديل الخط */}
+              <span className="font-arabic-stylized text-lg">
                 نحول الشغف إلى واقع من خلال إبداع جريء وحرفية استثنائية.
               </span>
-              <span className="font-[family-name:var(--font-english)] text-sm opacity-60">
+              {/* الإنجليزي: تعديل الخط */}
+              <span className="font-['Acumin'] text-sm opacity-60">
                 Turning passion into reality through bold creativity and exceptional craftsmanship.
               </span>
             </p>
@@ -109,10 +111,12 @@ export function Footer() {
             >
               {/* عنوان القسم (عربي + إنجليزي) */}
               <h4 className="flex flex-col gap-1 mb-6 font-bold border-b border-background/10 pb-2">
-                <span className="font-[family-name:var(--font-arabic)] text-lg text-white">
+                {/* العربي: تعديل الخط */}
+                <span className="font-arabic-stylized text-lg text-white">
                   {section.titleAr}
                 </span>
-                <span className="font-[family-name:var(--font-english)] text-xs text-background/50 uppercase tracking-widest">
+                {/* الإنجليزي: تعديل الخط */}
+                <span className="font-['Acumin'] text-xs text-background/50 uppercase tracking-widest">
                   {section.titleEn}
                 </span>
               </h4>
@@ -125,10 +129,12 @@ export function Footer() {
                       href="#"
                       className="group flex flex-col gap-0.5 text-background/60 hover:text-secondary transition-colors duration-300"
                     >
-                      <span className="font-[family-name:var(--font-arabic)] text-base group-hover:translate-x-[-4px] transition-transform">
+                      {/* العربي: تعديل الخط */}
+                      <span className="font-arabic-stylized text-base group-hover:translate-x-[-4px] transition-transform">
                         {link.ar}
                       </span>
-                      <span className="font-[family-name:var(--font-english)] text-[10px] opacity-50 uppercase tracking-wide group-hover:opacity-80">
+                      {/* الإنجليزي: تعديل الخط */}
+                      <span className="font-['Acumin'] text-[10px] opacity-50 uppercase tracking-wide group-hover:opacity-80">
                         {link.en}
                       </span>
                     </a>
@@ -145,20 +151,24 @@ export function Footer() {
             
             {/* حقوق النشر */}
             <p className="text-background/40 text-sm flex flex-col md:flex-row gap-1">
-              <span className="font-[family-name:var(--font-arabic)]">
+              {/* العربي: تعديل الخط */}
+              <span className="font-arabic-stylized">
                 &copy; {new Date().getFullYear()} وكالة تخيُّل. جميع الحقوق محفوظة.
               </span>
-              <span className="font-[family-name:var(--font-english)] opacity-60">
+              {/* الإنجليزي: تعديل الخط */}
+              <span className="font-['Acumin'] opacity-60">
                 | All rights reserved.
               </span>
             </p>
 
             {/* صنع في السعودية */}
             <p className="text-background/40 text-sm flex items-center gap-2">
-              <span className="font-[family-name:var(--font-english)] opacity-60 uppercase tracking-widest text-[10px]">
+              {/* الإنجليزي: تعديل الخط */}
+              <span className="font-['Acumin'] opacity-60 uppercase tracking-widest text-[10px]">
                 Crafted with passion in
               </span>
-              <span className="font-[family-name:var(--font-arabic)] text-secondary font-bold">
+              {/* العربي: تعديل الخط */}
+              <span className="font-arabic-stylized text-secondary font-bold">
                 السعودية 🇸🇦
               </span>
             </p>

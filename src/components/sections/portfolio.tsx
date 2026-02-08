@@ -92,19 +92,23 @@ export function Portfolio() {
           className="text-center mb-20 flex flex-col items-center"
         >
           <div className="flex flex-col items-center mb-4">
-            <span className="text-sm font-[family-name:var(--font-arabic)] font-medium tracking-wide text-secondary mb-1">
+            {/* العربي: تعديل الخط */}
+            <span className="text-sm font-arabic-stylized font-medium tracking-wide text-secondary mb-1">
               أعمالنــا
             </span>
-            <span className="text-[10px] font-[family-name:var(--font-english)] tracking-[0.2em] uppercase text-secondary/70">
+            {/* الإنجليزي: تعديل الخط */}
+            <span className="text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
               Our Portfolio
             </span>
           </div>
           
           <h2 className="flex flex-col items-center gap-2 font-bold text-foreground">
-            <span className="font-[family-name:var(--font-arabic)] text-4xl md:text-5xl">
+            {/* العربي: تعديل الخط */}
+            <span className="font-arabic-stylized text-4xl md:text-5xl">
               مختارات من أعمالنا
             </span>
-            <span className="font-[family-name:var(--font-english)] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+            {/* الإنجليزي: تعديل الخط */}
+            <span className="font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
               Selected Works
             </span>
           </h2>
@@ -149,20 +153,24 @@ export function Portfolio() {
                   
                   {/* التصنيف (عربي + إنجليزي) */}
                   <div className="flex flex-col items-start mb-2">
-                    <span className="font-[family-name:var(--font-arabic)] text-secondary text-sm font-bold tracking-wide">
+                    {/* العربي: تعديل الخط */}
+                    <span className="font-arabic-stylized text-secondary text-sm font-bold tracking-wide">
                       {project.categoryAr}
                     </span>
-                    <span className="font-[family-name:var(--font-english)] text-secondary/80 text-[10px] uppercase tracking-wider">
+                    {/* الإنجليزي: تعديل الخط */}
+                    <span className="font-['Acumin'] text-secondary/80 text-[10px] uppercase tracking-wider">
                       {project.categoryEn}
                     </span>
                   </div>
 
                   {/* اسم المشروع (عربي + إنجليزي) */}
                   <h3 className="flex flex-col gap-1 font-semibold text-white">
-                    <span className="font-[family-name:var(--font-arabic)] text-xl md:text-2xl">
+                    {/* العربي: تعديل الخط */}
+                    <span className="font-arabic-stylized text-xl md:text-2xl">
                       {project.titleAr}
                     </span>
-                    <span className="font-[family-name:var(--font-english)] text-sm opacity-80 uppercase tracking-wide">
+                    {/* الإنجليزي: تعديل الخط */}
+                    <span className="font-['Acumin'] text-sm opacity-80 uppercase tracking-wide">
                       {project.titleEn}
                     </span>
                   </h3>
@@ -184,8 +192,10 @@ export function Portfolio() {
           className="text-center mt-16 flex justify-center"
         >
           <button className="px-10 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 rounded-full flex flex-col items-center gap-1 group">
-            <span className="font-[family-name:var(--font-arabic)] text-lg font-bold">شاهد كل الأعمال</span>
-            <span className="font-[family-name:var(--font-english)] text-xs uppercase tracking-widest opacity-80 group-hover:opacity-100">View All Projects</span>
+            {/* العربي: تعديل الخط */}
+            <span className="font-arabic-stylized text-lg font-bold">شاهد كل الأعمال</span>
+            {/* الإنجليزي: تعديل الخط */}
+            <span className="font-['Acumin'] text-xs uppercase tracking-widest opacity-80 group-hover:opacity-100">View All Projects</span>
           </button>
         </motion.div>
       </div>

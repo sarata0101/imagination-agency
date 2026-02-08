@@ -20,19 +20,23 @@ export function Contact() {
           className="text-center mb-20 flex flex-col items-center"
         >
           <div className="flex flex-col items-center mb-4">
-            <span className="text-sm font-[family-name:var(--font-arabic)] font-medium tracking-wide text-secondary mb-1">
+            {/* العربي: تعديل الخط */}
+            <span className="text-sm font-arabic-stylized font-medium tracking-wide text-secondary mb-1">
               تواصل معنا
             </span>
-            <span className="text-[10px] font-[family-name:var(--font-english)] tracking-[0.2em] uppercase text-secondary/70">
+            {/* الإنجليزي: تعديل الخط */}
+            <span className="text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
               Get in Touch
             </span>
           </div>
           
           <h2 className="flex flex-col items-center gap-2 font-bold text-foreground">
-            <span className="font-[family-name:var(--font-arabic)] text-4xl md:text-5xl">
+            {/* العربي: تعديل الخط */}
+            <span className="font-arabic-stylized text-4xl md:text-5xl">
               ابدأ مشروعك الآن
             </span>
-            <span className="font-[family-name:var(--font-english)] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+            {/* الإنجليزي: تعديل الخط */}
+            <span className="font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
               Contact Us
             </span>
           </h2>
@@ -50,14 +54,17 @@ export function Contact() {
           >
             <div>
               <h3 className="flex flex-col gap-1 font-semibold text-foreground mb-4">
-                <span className="font-[family-name:var(--font-arabic)] text-2xl">
+                {/* العربي: تعديل الخط */}
+                <span className="font-arabic-stylized text-2xl">
                   لنتحدث سوياً
                 </span>
-                <span className="font-[family-name:var(--font-english)] text-sm opacity-60 uppercase tracking-wide">
+                {/* الإنجليزي: تعديل الخط */}
+                <span className="font-['Acumin'] text-sm opacity-60 uppercase tracking-wide">
                   Let's start a conversation
                 </span>
               </h3>
-              <p className="text-muted-foreground leading-relaxed font-[family-name:var(--font-arabic)] text-lg">
+              {/* العربي: تعديل الخط */}
+              <p className="text-muted-foreground leading-relaxed font-arabic-stylized text-lg">
                 هل لديك مشروع في ذهنك؟ نود أن نسمع عنه. أرسل لنا رسالة وسنقوم بالرد عليك في أقرب وقت ممكن.
               </p>
             </div>
@@ -69,10 +76,10 @@ export function Contact() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground font-[family-name:var(--font-english)] uppercase text-sm tracking-wider mb-1">Email</p>
+                  <p className="font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1">Email</p>
                   <a
                     href="mailto:hello@imagination.sa"
-                    className="text-muted-foreground hover:text-secondary transition-colors font-[family-name:var(--font-english)] text-lg"
+                    className="text-muted-foreground hover:text-secondary transition-colors font-['Acumin'] text-lg"
                   >
                     hello@imagination.sa
                   </a>
@@ -85,10 +92,10 @@ export function Contact() {
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground font-[family-name:var(--font-english)] uppercase text-sm tracking-wider mb-1">Phone</p>
+                  <p className="font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1">Phone</p>
                   <a
                     href="tel:+966500000000"
-                    className="text-muted-foreground hover:text-secondary transition-colors font-[family-name:var(--font-english)] text-lg dir-ltr"
+                    className="text-muted-foreground hover:text-secondary transition-colors font-['Acumin'] text-lg dir-ltr"
                   >
                     +966 50 000 0000
                   </a>
@@ -101,11 +108,11 @@ export function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground font-[family-name:var(--font-english)] uppercase text-sm tracking-wider mb-1">Location</p>
-                  <p className="text-muted-foreground font-[family-name:var(--font-arabic)] text-lg">
+                  <p className="font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1">Location</p>
+                  {/* العربي: تعديل الخط */}
+                  <p className="text-muted-foreground font-arabic-stylized text-lg">
                     الرياض، المملكة العربية السعودية
                     <br />
-
                   </p>
                 </div>
               </div>
@@ -125,27 +132,27 @@ export function Contact() {
                 {/* الاسم */}
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                     <span className="font-[family-name:var(--font-english)] opacity-50 uppercase text-[10px] tracking-widest pt-1">Name</span>
-                     <span className="font-[family-name:var(--font-arabic)]">الاسم</span>
+                      <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Name</span>
+                      <span className="font-arabic-stylized">الاسم</span>
                   </label>
                   <Input
                     id="name"
                     placeholder="الاسم الكريم"
-                    className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-[family-name:var(--font-arabic)]"
+                    className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-arabic-stylized"
                   />
                 </div>
 
                 {/* البريد */}
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                    <span className="font-[family-name:var(--font-english)] opacity-50 uppercase text-[10px] tracking-widest pt-1">Email</span>
-                    <span className="font-[family-name:var(--font-arabic)]">البريد الإلكتروني</span>
+                    <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Email</span>
+                    <span className="font-arabic-stylized">البريد الإلكتروني</span>
                   </label>
                   <Input
                     id="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-[family-name:var(--font-english)]"
+                    className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-['Acumin']"
                   />
                 </div>
               </div>
@@ -153,27 +160,27 @@ export function Contact() {
               {/* الموضوع */}
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                  <span className="font-[family-name:var(--font-english)] opacity-50 uppercase text-[10px] tracking-widest pt-1">Subject</span>
-                  <span className="font-[family-name:var(--font-arabic)]">الموضوع</span>
+                  <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Subject</span>
+                  <span className="font-arabic-stylized">الموضوع</span>
                 </label>
                 <Input
                   id="subject"
                   placeholder="استفسار عن مشروع..."
-                  className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-[family-name:var(--font-arabic)]"
+                  className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-arabic-stylized"
                 />
               </div>
 
               {/* الرسالة */}
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                  <span className="font-[family-name:var(--font-english)] opacity-50 uppercase text-[10px] tracking-widest pt-1">Message</span>
-                  <span className="font-[family-name:var(--font-arabic)]">الرسالة</span>
+                  <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Message</span>
+                  <span className="font-arabic-stylized">الرسالة</span>
                 </label>
                 <Textarea
                   id="message"
                   placeholder="أخبرنا المزيد عن تفاصيل مشروعك..."
                   rows={6}
-                  className="bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 resize-none text-right font-[family-name:var(--font-arabic)]"
+                  className="bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 resize-none text-right font-arabic-stylized"
                 />
               </div>
 
@@ -182,8 +189,8 @@ export function Contact() {
                 size="lg"
                 className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-medium rounded-xl flex flex-col gap-0 items-center justify-center"
               >
-                <span className="font-[family-name:var(--font-arabic)] text-lg font-bold">إرسال الرسالة</span>
-                <span className="font-[family-name:var(--font-english)] text-[10px] uppercase tracking-widest opacity-80">Send Message</span>
+                <span className="font-arabic-stylized text-lg font-bold">إرسال الرسالة</span>
+                <span className="font-['Acumin'] text-[10px] uppercase tracking-widest opacity-80">Send Message</span>
               </Button>
             </form>
           </motion.div>

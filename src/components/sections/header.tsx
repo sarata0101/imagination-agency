@@ -39,17 +39,20 @@ export function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
-          {/* زودنا الارتفاع شوية (h-24) عشان الكلام بقى سطرين */}
-          <nav className="flex items-center justify-between h-24">
+          {/* 1. (تعديل هام) كبرنا ارتفاع الـ Nav لـ h-32 بدل h-24 عشان يستوعب اللوجو الكبير */}
+          <nav className="flex items-center justify-between h-32 transition-all duration-300">
             
             {/* Logo */}
             <a href="/" className="flex items-center gap-3">
-              <div className="relative w-32 h-10">
+              {/* 2. (تعديل هام) كبرنا أبعاد اللوجو جداً */}
+              {/* الموبايل: w-48 h-16 (كبير وواضح) */}
+              {/* الديسكوتوب: w-80 h-28 (ضخم) */}
+              <div className="relative w-48 h-16 md:w-80 md:h-28 transition-all duration-300">
                 <Image 
                   src="/logo-full.svg" 
                   alt="Imagination Logo" 
                   fill 
-                  className="object-contain"
+                  className="object-contain" // دي بتخلي اللوجو يبان كامل جوه المربع
                   priority
                 />
               </div>
@@ -63,12 +66,12 @@ export function Header() {
                   href={link.href}
                   className="group flex flex-col items-center text-center transition-colors"
                 >
-                  {/* العربي بخط font-arabic */}
-                  <span className="font-[family-name:var(--font-arabic)] font-medium text-base text-foreground group-hover:text-secondary">
+                  {/* العربي: استخدمنا الكلاس الجديد font-arabic-stylized */}
+                  <span className="font-arabic-stylized font-medium text-base text-foreground group-hover:text-secondary">
                     {link.nameAr}
                   </span>
-                  {/* الإنجليزي بخط font-english ولون أخف */}
-                  <span className="font-[family-name:var(--font-english)] text-[10px] font-medium tracking-wider text-muted-foreground uppercase group-hover:text-secondary/80">
+                  {/* الإنجليزي: استخدمنا خط Acumin */}
+                  <span className="font-['Acumin'] text-[10px] font-medium tracking-wider text-muted-foreground uppercase group-hover:text-secondary/80">
                     {link.nameEn}
                   </span>
                 </a>
@@ -78,8 +81,8 @@ export function Header() {
             {/* CTA Button (Bilingual) */}
             <div className="hidden md:block">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-6 h-auto flex flex-col items-center leading-none gap-1 shadow-md">
-                <span className="font-[family-name:var(--font-arabic)] text-sm font-bold">ابدأ مشروعك</span>
-                <span className="font-[family-name:var(--font-english)] text-[10px] tracking-wide opacity-90 uppercase">Start a Project</span>
+                <span className="font-arabic-stylized text-sm font-bold">ابدأ مشروعك</span>
+                <span className="font-['Acumin'] text-[10px] tracking-wide opacity-90 uppercase">Start a Project</span>
               </Button>
             </div>
 
@@ -118,19 +121,19 @@ export function Header() {
                   className="flex flex-col items-center gap-1 group"
                 >
                   {/* العربي */}
-                  <span className="font-[family-name:var(--font-arabic)] text-2xl font-bold text-foreground group-hover:text-secondary">
+                  <span className="font-arabic-stylized text-2xl font-bold text-foreground group-hover:text-secondary">
                     {link.nameAr}
                   </span>
                   {/* الإنجليزي */}
-                  <span className="font-[family-name:var(--font-english)] text-sm font-medium tracking-widest text-muted-foreground uppercase">
+                  <span className="font-['Acumin'] text-sm font-medium tracking-widest text-muted-foreground uppercase">
                     {link.nameEn}
                   </span>
                 </motion.a>
               ))}
               <div className="mt-4 w-full">
                 <Button className="w-full bg-primary hover:bg-primary/90 rounded-full py-8 h-auto flex flex-col gap-2">
-                    <span className="font-[family-name:var(--font-arabic)] text-lg font-bold">ابدأ مشروعك</span>
-                    <span className="font-[family-name:var(--font-english)] text-xs tracking-wide uppercase">Start a Project</span>
+                    <span className="font-arabic-stylized text-lg font-bold">ابدأ مشروعك</span>
+                    <span className="font-['Acumin'] text-xs tracking-wide uppercase">Start a Project</span>
                 </Button>
               </div>
             </div>

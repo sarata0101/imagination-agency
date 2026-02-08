@@ -65,19 +65,23 @@ export function Services() {
           className="text-center mb-20 flex flex-col items-center"
         >
           <div className="flex flex-col items-center mb-4">
-            <span className="text-sm font-[family-name:var(--font-arabic)] font-medium tracking-wide text-secondary mb-1">
+            {/* العربي: تعديل الخط */}
+            <span className="text-sm font-arabic-stylized font-medium tracking-wide text-secondary mb-1">
               ماذا نقدم
             </span>
-            <span className="text-[10px] font-[family-name:var(--font-english)] tracking-[0.2em] uppercase text-secondary/70">
+            {/* الإنجليزي: تعديل الخط */}
+            <span className="text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
               What We Do
             </span>
           </div>
           
           <h2 className="flex flex-col items-center gap-2 font-bold text-foreground">
-            <span className="font-[family-name:var(--font-arabic)] text-4xl md:text-5xl">
+            {/* العربي: تعديل الخط */}
+            <span className="font-arabic-stylized text-4xl md:text-5xl">
               خدماتنــا
             </span>
-            <span className="font-[family-name:var(--font-english)] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+            {/* الإنجليزي: تعديل الخط */}
+            <span className="font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
               Our Services
             </span>
           </h2>
@@ -112,27 +116,32 @@ export function Services() {
                   
                   {/* العنوان */}
                   <div className="mb-4 w-full">
-                    <h3 className="font-[family-name:var(--font-arabic)] text-2xl font-bold text-foreground mb-1">
+                    {/* العربي: تعديل الخط */}
+                    <h3 className="font-arabic-stylized text-2xl font-bold text-foreground mb-1">
                       {service.titleAr}
                     </h3>
-                    <p className="font-[family-name:var(--font-english)] text-sm font-medium text-muted-foreground/60 uppercase tracking-wide">
+                    {/* الإنجليزي: تعديل الخط */}
+                    <p className="font-['Acumin'] text-sm font-medium text-muted-foreground/60 uppercase tracking-wide">
                       {service.titleEn}
                     </p>
                   </div>
                   
                   {/* الوصف */}
                   <div className="mb-6">
-                    <p className="font-[family-name:var(--font-arabic)] text-muted-foreground leading-relaxed text-lg mb-2">
+                    {/* العربي: تعديل الخط */}
+                    <p className="font-arabic-stylized text-muted-foreground leading-relaxed text-lg mb-2">
                       {service.descAr}
                     </p>
-                    <p className="font-[family-name:var(--font-english)] text-sm text-muted-foreground/60 leading-relaxed dir-ltr text-left">
+                    {/* الإنجليزي: تعديل الخط */}
+                    <p className="font-['Acumin'] text-sm text-muted-foreground/60 leading-relaxed dir-ltr text-left">
                       {service.descEn}
                     </p>
                   </div>
 
                   {/* رابط اقرأ المزيد */}
                   <div className="mt-auto flex items-center text-secondary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2">
-                    <span className="font-[family-name:var(--font-arabic)] text-sm">اقرأ المزيد</span>
+                    {/* العربي: تعديل الخط */}
+                    <span className="font-arabic-stylized text-sm">اقرأ المزيد</span>
                     <svg
                       className="w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180"
                       fill="none"

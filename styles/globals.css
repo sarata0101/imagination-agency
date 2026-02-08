@@ -3,6 +3,42 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* 1. تعريف الخط العربي Thmnayah */
+@font-face {
+  font-family: 'Thmnayah';
+  src: url('/fonts/thmanyahsans_regular.otf') format('opentype');
+  font-weight: normal; /* ده للخط العادي */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Thmnayah';
+  src: url('/fonts/thmanyahsans_bold.otf') format('opentype');
+  font-weight: bold; /* ده للخط التقيل */
+  font-style: normal;
+}
+
+/* 2. تعريف الخط الإنجليزي Acumin */
+@font-face {
+  font-family: 'Acumin';
+  src: url('/fonts/Acumin-RPro.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Acumin';
+  src: url('/fonts/Acumin-BdPro.otf') format('opentype');
+  font-weight: bold;
+}
+
+/* 3. كلاس "الدلع" - لتفعيل حركة الحروف في العربي */
+/* جربي تضيفي الكلاس ده لأي عنوان عشان تشوفي النتيجة */
+.arabic-style {
+  font-family: 'Thmnayah', sans-serif;
+  /* جربي ss01 هي اللي غالبا بتعمل الحركة دي في الخطوط دي */
+  font-feature-settings: "ss01"; 
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -75,7 +111,7 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: 'Acumin', 'Thmnayah', 'Geist', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -123,3 +159,10 @@
     @apply bg-background text-foreground;
   }
 }
+@layer utilities {
+  .font-arabic-stylized {
+    font-family: 'Thmnayah';
+    font-feature-settings: "ss01";
+  }
+}
+
