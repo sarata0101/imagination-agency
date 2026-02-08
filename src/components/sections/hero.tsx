@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-48">
       
       {/* =========================================================
           1. الخلفية الديكورية (زي ما هي بالظبط ماتمسحش منها حاجة)
