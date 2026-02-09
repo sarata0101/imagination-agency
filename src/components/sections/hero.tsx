@@ -83,7 +83,7 @@ export function Hero() {
           className="flex flex-col gap-4 font-bold text-foreground leading-tight"
         >
           {/* العربي الكبير */}
-          <span className="font-arabic-stylized text-5xl sm:text-7xl md:text-8xl">
+          <span className="font-arabic-stylized text-5xl sm:text-7xl md:text-8xl"style={{ fontFamily: 'Thmanyah-Final' }}>
             نحـول الشغـف
             <br />
             <span className="text-primary">إلى واقــع</span>

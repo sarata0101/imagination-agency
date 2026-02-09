@@ -3,120 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* 1. تعريف الخط العربي Thmnayah */
-@font-face {
-  font-family: 'Thmnayah';
-  /* الاسم من صورتك: thmanyahsans_regular.otf (كله سمول) */
-  src: url('/fonts/thmanyahsans_regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Thmnayah';
-  /* الاسم من صورتك: thmanyahsans_bold.otf (كله سمول) */
-  src: url('/fonts/thmanyahsans_bold.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Thmnayah';
-  src: url('/fonts/thmanyahsans_medium.otf') format('opentype');
-  font-weight: medium;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Thmnayah';
-  src: url('/fonts/thmanyahsans_light.otf') format('opentype');
-  font-weight: light;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Thmnayah';
-  src: url('/fonts/thmanyahsans_black.otf') format('opentype');
-  font-weight: black;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Thmnayah';
-  src: url('/fonts/thmanyahseriftext_black.otf') format('opentype');
-  font-weight: black;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Thmnayah';
-  src: url('/fonts/thmanyahseriftext_medium.otf') format('opentype');
-  font-weight: medium;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* 2. تعريف الخط الإنجليزي Acumin */
-@font-face {
-  font-family: 'Acumin';
-  /* الاسم من صورتك: Acumin-RPro.otf (الـ A و R و P كابيتال) */
-  src: url('/fonts/Acumin-RPro.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Acumin';
-  /* الاسم من صورتك: Acumin-BdPro.otf (الـ A و B و P كابيتال) */
-  src: url('/fonts/Acumin-BdPro.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Acumin';
-  src: url('/fonts/Acumin-BdItPro.otf') format('opentype');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Acumin';
-  src: url('/fonts/Acumin-ItPro.otf') format('opentype');
-  font-weight: italic;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Lyon';
-  src: url('/fonts/Copy of Lyon Arabic Display Medium.ttf') format('truetype');
-  font-weight: medium;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Lyon';
-  src: url('/fonts/Copy of Lyon Arabic Display Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Lyon';
-  src: url('/fonts/Copy of Lyon Arabic Display Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Lyon';
-  src: url('/fonts/Copy of Lyon Arabic Display Light.ttf') format('truetype');
-  font-weight: light;
-  font-style: normal;
-  font-display: swap;
-}
 
 
 :root {
@@ -155,107 +41,33 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-}
-
 @theme inline {
-  --font-sans: 'Acumin', 'Thmnayah', 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  /* هنا بنربط بمتغيرات Next.js */
+  --font-sans: var(--font-acumin), var(--font-thmanyah), sans-serif;
+  --font-serif: var(--font-thmanyah), serif;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
+  /* الإجبار النهائي */
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-thmanyah), sans-serif !important;
   }
-}
-@layer utilities {
-  .font-arabic-stylized {
-    font-family: 'Thmnayah', sans-serif;
-    
-    /* هنا السحر كله! */
-    /* swsh: بتفعل الحروف المزخرفة والديل الطويل */
-    /* ss01, ss02, ss03: مجموعات بديلة لأشكال الحروف */
-    /* calt: بيظبط تلاحم الحروف بذكاء */
-    /* liga: بيفعل التداخلات الفنية بين الحروف */
-    font-feature-settings: "swsh" 1, "ss01" 1, "ss02" 1, "ss03" 1, "calt" 1, "liga" 1, "kern" 1;
-    
-    /* ده عشان يشتغل على كل المتصفحات */
-    -webkit-font-feature-settings: "swsh" 1, "ss01" 1, "ss02" 1, "ss03" 1, "calt" 1, "liga" 1, "kern" 1;
-    -moz-font-feature-settings: "swsh" 1, "ss01" 1, "ss02" 1, "ss03" 1, "calt" 1, "liga" 1, "kern" 1;
-    
-    /* خاصية لتحسين جودة رسم الخط */
-    text-rendering: optimizeLegibility; 
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-thmanyah), sans-serif !important;
   }
 }
 
+@layer utilities {
+  .font-arabic-stylized {
+    font-family: var(--font-thmanyah), sans-serif !important;
+    font-feature-settings: "swsh" 1, "ss01" 1, "calt" 1, "liga" 1;
+    -webkit-font-feature-settings: "swsh" 1, "ss01" 1, "calt" 1, "liga" 1;
+    font-weight: 900; 
+  }
+}
