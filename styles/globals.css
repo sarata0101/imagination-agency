@@ -21,6 +21,41 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Thmnayah';
+  src: url('/fonts/thmanyahsans_medium.otf') format('opentype');
+  font-weight: medium;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmnayah';
+  src: url('/fonts/thmanyahsans_light.otf') format('opentype');
+  font-weight: light;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmnayah';
+  src: url('/fonts/thmanyahsans_black.otf') format('opentype');
+  font-weight: black;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmnayah';
+  src: url('/fonts/thmanyahseriftext_black.otf') format('opentype');
+  font-weight: black;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Thmnayah';
+  src: url('/fonts/thmanyahseriftext_medium.otf') format('opentype');
+  font-weight: medium;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* 2. تعريف الخط الإنجليزي Acumin */
 @font-face {
@@ -37,6 +72,48 @@
   /* الاسم من صورتك: Acumin-BdPro.otf (الـ A و B و P كابيتال) */
   src: url('/fonts/Acumin-BdPro.otf') format('opentype');
   font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acumin';
+  src: url('/fonts/Acumin-BdItPro.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acumin';
+  src: url('/fonts/Acumin-ItPro.otf') format('opentype');
+  font-weight: italic;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lyon';
+  src: url('/fonts/Copy of Lyon Arabic Display Medium.ttf') format('truetype');
+  font-weight: medium;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lyon';
+  src: url('/fonts/Copy of Lyon Arabic Display Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lyon';
+  src: url('/fonts/Copy of Lyon Arabic Display Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lyon';
+  src: url('/fonts/Copy of Lyon Arabic Display Light.ttf') format('truetype');
+  font-weight: light;
   font-style: normal;
   font-display: swap;
 }
