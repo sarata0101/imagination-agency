@@ -6,45 +6,41 @@
 /* 1. تعريف الخط العربي Thmnayah */
 @font-face {
   font-family: 'Thmnayah';
-  /* الاسم لازم يكون زي الملف بالظبط thmanyahsans_regular.otf */
+  /* الاسم من صورتك: thmanyahsans_regular.otf (كله سمول) */
   src: url('/fonts/thmanyahsans_regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Thmnayah';
-  /* الاسم زي الملف thmanyahsans_bold.otf */
+  /* الاسم من صورتك: thmanyahsans_bold.otf (كله سمول) */
   src: url('/fonts/thmanyahsans_bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 /* 2. تعريف الخط الإنجليزي Acumin */
-/* ركزي هنا: الحروف الكابيتال لازم تتكتب كابيتال زي الملف بالظبط */
 @font-face {
   font-family: 'Acumin';
-  src: url('/fonts/Acumin-RPro.otf') format('opentype'); /* A و R و P كابيتال */
+  /* الاسم من صورتك: Acumin-RPro.otf (الـ A و R و P كابيتال) */
+  src: url('/fonts/Acumin-RPro.otf') format('opentype');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Acumin';
-  src: url('/fonts/Acumin-BdPro.otf') format('opentype'); /* BdPro زي الملف */
+  /* الاسم من صورتك: Acumin-BdPro.otf (الـ A و B و P كابيتال) */
+  src: url('/fonts/Acumin-BdPro.otf') format('opentype');
   font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* 3. تحديث كلاس الدلع (الحركات) */
-/* زودتلك خواص زيادة عشان نضمن ان الحركة تظهر */
-@layer utilities {
-  .font-arabic-stylized {
-    font-family: 'Thmnayah', sans-serif;
-    /* بنجرب كذا كود عشان لو ss01 مش شغالة، الـ swsh تشتغل */
-    font-feature-settings: "ss01", "cv01", "swsh", "kern", "liga";
-    /* ده بيحسن شكل الحروف العربي جداً */
-    text-rendering: optimizeLegibility; 
-  }
-}
 
 :root {
   --background: oklch(1 0 0);
@@ -168,8 +164,21 @@
 }
 @layer utilities {
   .font-arabic-stylized {
-    font-family: 'Thmnayah';
-    font-feature-settings: "ss01";
+    font-family: 'Thmnayah', sans-serif;
+    
+    /* هنا السحر كله! */
+    /* swsh: بتفعل الحروف المزخرفة والديل الطويل */
+    /* ss01, ss02, ss03: مجموعات بديلة لأشكال الحروف */
+    /* calt: بيظبط تلاحم الحروف بذكاء */
+    /* liga: بيفعل التداخلات الفنية بين الحروف */
+    font-feature-settings: "swsh" 1, "ss01" 1, "ss02" 1, "ss03" 1, "calt" 1, "liga" 1, "kern" 1;
+    
+    /* ده عشان يشتغل على كل المتصفحات */
+    -webkit-font-feature-settings: "swsh" 1, "ss01" 1, "ss02" 1, "ss03" 1, "calt" 1, "liga" 1, "kern" 1;
+    -moz-font-feature-settings: "swsh" 1, "ss01" 1, "ss02" 1, "ss03" 1, "calt" 1, "liga" 1, "kern" 1;
+    
+    /* خاصية لتحسين جودة رسم الخط */
+    text-rendering: optimizeLegibility; 
   }
 }
 
