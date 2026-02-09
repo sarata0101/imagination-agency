@@ -54,7 +54,7 @@ export function Hero() {
       </div>
 
       {/* =========================================================
-          2. المحتوى (هنا دمجنا العربي والإنجليزي)
+          2. المحتوى (تم تطبيق LTR على الإنجليزي وحذف الشكل الزيادة)
          ========================================================= */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         
@@ -65,12 +65,12 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center mb-8"
         >
-          {/* العربي: استخدمنا الكلاس الجديد */}
+          {/* العربي */}
           <span className="inline-block px-4 py-2 text-sm font-arabic-stylized font-medium text-secondary border border-secondary/30 rounded-full mb-1">
             استوديو إبداعي متكامل
           </span>
-          {/* الإنجليزي: استخدمنا Acumin */}
-          <span className="text-[10px] font-['Acumin'] tracking-[0.2em] text-secondary/80 uppercase">
+          {/* الإنجليزي: حطينا ltr عشان يتظبط */}
+          <span className="ltr text-[10px] font-['Acumin'] tracking-[0.2em] text-secondary/80 uppercase">
             Full-Service Creative Studio
           </span>
         </motion.div>
@@ -83,15 +83,15 @@ export function Hero() {
           className="flex flex-col gap-4 font-bold text-foreground leading-tight"
         >
           {/* العربي الكبير */}
-          <span className="font-arabic-stylized text-5xl sm:text-7xl md:text-8xl"style={{ fontFamily: 'Thmanyah-Final' }}>
+          <span className="font-arabic-stylized text-5xl sm:text-7xl md:text-8xl">
             نحـول الشغـف
             <br />
             <span className="text-primary">إلى واقــع</span>
           </span>
           
-          {/* الإنجليزي تحته */}
-          <span className="font-['Acumin'] text-2xl sm:text-3xl md:text-4xl text-muted-foreground uppercase tracking-tight mt-2 opacity-80">
-            Turning Passion <span className="text-primary">Into Reality</span>
+          {/* الإنجليزي تحته: حطينا ltr والنقطة في الآخر */}
+          <span className="ltr font-['Acumin'] text-2xl sm:text-3xl md:text-4xl text-muted-foreground uppercase tracking-tight mt-2 opacity-80">
+            Turning Passion <span className="text-primary"> Into Reality </span>
           </span>
         </motion.h1>
 
@@ -106,8 +106,8 @@ export function Hero() {
           <span className="block font-arabic-stylized text-xl md:text-2xl text-muted-foreground mb-3 leading-relaxed">
             نصمم علامات تجارية جريئة ونخلق تجارب بصرية لا تُنسى، ليبقى أثرك راسخاً لدى جمهورك.
           </span>
-          {/* الإنجليزي */}
-          <span className="block font-['Acumin'] text-sm md:text-base text-muted-foreground/70 uppercase tracking-wide leading-relaxed">
+          {/* الإنجليزي: حطينا ltr والنقطة في الآخر */}
+          <span className="ltr block font-['Acumin'] text-sm md:text-base text-muted-foreground/70 uppercase tracking-wide leading-relaxed">
             We craft bold brands and create unforgettable visual experiences that resonate with your audience and elevate your presence.
           </span>
         </motion.p>
@@ -125,7 +125,7 @@ export function Hero() {
             className="bg-foreground text-background hover:bg-foreground/90 px-8 py-8 rounded-full flex flex-col gap-1 min-w-[200px] h-auto"
           >
             <span className="font-arabic-stylized text-lg">شاهد أعمالنا</span>
-            <span className="font-['Acumin'] text-xs uppercase tracking-wider opacity-80">Our Work</span>
+            <span className="ltr font-['Acumin'] text-xs uppercase tracking-wider opacity-80">Our Work</span>
           </Button>
 
           {/* زرار التواصل */}
@@ -134,28 +134,12 @@ export function Hero() {
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-8 rounded-full flex flex-col gap-1 min-w-[200px] h-auto"
           >
             <span className="font-arabic-stylized text-lg">تواصل معنا</span>
-            <span className="font-['Acumin'] text-xs uppercase tracking-wider opacity-80">Contact Us</span>
+            <span className="ltr font-['Acumin'] text-xs uppercase tracking-wider opacity-80">Contact Us</span>
           </Button>
         </motion.div>
       </div>
 
-      {/* =========================================================
-          3. مؤشر النزول (زي ما هو)
-         ========================================================= */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 rounded-full border-2 border-foreground/20 flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1 h-2 rounded-full bg-primary" />
-        </motion.div>
-      </motion.div>
+      
     </section>
   );
 }

@@ -101,8 +101,8 @@ export function CTA() {
               دعنـا نتخيـل <span className="text-[#c06c5b]">معـاً</span>
             </span>
             
-            {/* الإنجليزي تحته - تعديل الخط */}
-            <span className="font-['Acumin'] text-3xl sm:text-5xl md:text-6xl text-white/80 uppercase tracking-tight">
+            {/* الإنجليزي تحته - تعديل الخط + ltr */}
+            <span className="ltr font-['Acumin'] text-3xl sm:text-5xl md:text-6xl text-white/80 uppercase tracking-tight">
               Let's Imagine <span className="text-[#c06c5b]">Together</span>
             </span>
           </h2>
@@ -113,8 +113,8 @@ export function CTA() {
             <p className="font-arabic-stylized text-xl md:text-2xl text-white/90 mb-3 leading-relaxed">
               جاهز لتحويل رؤيتك إلى واقع؟ نحن هنا لنصنع تجارب تترك أثراً لا يُنسى.
             </p>
-            {/* الإنجليزي - تعديل الخط */}
-            <p className="font-['Acumin'] text-base md:text-lg text-white/60 leading-relaxed">
+            {/* الإنجليزي - تعديل الخط + ltr */}
+            <p className="ltr font-['Acumin'] text-base md:text-lg text-white/60 leading-relaxed">
               Ready to bring your vision to life? We're here to transform your ideas into captivating realities.
             </p>
           </div>
@@ -134,7 +134,8 @@ export function CTA() {
             >
               {/* تعديل الخطوط داخل الزرار */}
               <span className="font-arabic-stylized text-xl font-bold">ابدأ مشروعك</span>
-              <span className="font-['Acumin'] text-xs uppercase tracking-widest opacity-90">Start a Project</span>
+              {/* الإنجليزي: ltr */}
+              <span className="ltr font-['Acumin'] text-xs uppercase tracking-widest opacity-90">Start a Project</span>
             </Button>
           </motion.div>
         </motion.div>

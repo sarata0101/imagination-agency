@@ -24,8 +24,8 @@ export function Contact() {
             <span className="text-sm font-arabic-stylized font-medium tracking-wide text-secondary mb-1">
               تواصل معنا
             </span>
-            {/* الإنجليزي: تعديل الخط */}
-            <span className="text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
+            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="ltr text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
               Get in Touch
             </span>
           </div>
@@ -35,8 +35,8 @@ export function Contact() {
             <span className="font-arabic-stylized text-4xl md:text-5xl">
               ابدأ مشروعك الآن
             </span>
-            {/* الإنجليزي: تعديل الخط */}
-            <span className="font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="ltr font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
               Contact Us
             </span>
           </h2>
@@ -58,8 +58,8 @@ export function Contact() {
                 <span className="font-arabic-stylized text-2xl">
                   لنتحدث سوياً
                 </span>
-                {/* الإنجليزي: تعديل الخط */}
-                <span className="font-['Acumin'] text-sm opacity-60 uppercase tracking-wide">
+                {/* الإنجليزي: تعديل الخط + ltr */}
+                <span className="ltr font-['Acumin'] text-sm opacity-60 uppercase tracking-wide w-full text-right">
                   Let's start a conversation
                 </span>
               </h3>
@@ -76,10 +76,14 @@ export function Contact() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1">Email</p>
+                  {/* الإنجليزي: ltr */}
+                  <p className="ltr font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1 w-full text-right">
+                    Email
+                  </p>
                   <a
                     href="mailto:hello@imagination.sa"
-                    className="text-muted-foreground hover:text-secondary transition-colors font-['Acumin'] text-lg"
+                    /* الإنجليزي: ltr عشان الرموز تتظبط */
+                    className="ltr text-muted-foreground hover:text-secondary transition-colors font-['Acumin'] text-lg block text-right"
                   >
                     hello@imagination.sa
                   </a>
@@ -92,10 +96,14 @@ export function Contact() {
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1">Phone</p>
+                   {/* الإنجليزي: ltr */}
+                  <p className="ltr font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1 w-full text-right">
+                    Phone
+                  </p>
                   <a
                     href="tel:+966500000000"
-                    className="text-muted-foreground hover:text-secondary transition-colors font-['Acumin'] text-lg dir-ltr"
+                    /* الإنجليزي: ltr مهم جداً هنا عشان الرقم يظهر صح */
+                    className="ltr text-muted-foreground hover:text-secondary transition-colors font-['Acumin'] text-lg block text-right"
                   >
                     +966 50 000 0000
                   </a>
@@ -108,7 +116,10 @@ export function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1">Location</p>
+                   {/* الإنجليزي: ltr */}
+                  <p className="ltr font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1 w-full text-right">
+                    Location
+                  </p>
                   {/* العربي: تعديل الخط */}
                   <p className="text-muted-foreground font-arabic-stylized text-lg">
                     الرياض، المملكة العربية السعودية
@@ -132,7 +143,8 @@ export function Contact() {
                 {/* الاسم */}
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                      <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Name</span>
+                      {/* الإنجليزي: ltr */}
+                      <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Name</span>
                       <span className="font-arabic-stylized">الاسم</span>
                   </label>
                   <Input
@@ -145,14 +157,16 @@ export function Contact() {
                 {/* البريد */}
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                    <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Email</span>
+                    {/* الإنجليزي: ltr */}
+                    <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Email</span>
                     <span className="font-arabic-stylized">البريد الإلكتروني</span>
                   </label>
+                  {/* الإيميل بيحتاج ltr عشان الكتابة تكون انجليزي صح */}
                   <Input
                     id="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-['Acumin']"
+                    className="ltr h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-['Acumin']"
                   />
                 </div>
               </div>
@@ -160,7 +174,8 @@ export function Contact() {
               {/* الموضوع */}
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                  <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Subject</span>
+                  {/* الإنجليزي: ltr */}
+                  <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Subject</span>
                   <span className="font-arabic-stylized">الموضوع</span>
                 </label>
                 <Input
@@ -173,7 +188,8 @@ export function Contact() {
               {/* الرسالة */}
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-foreground flex gap-2 justify-end">
-                  <span className="font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Message</span>
+                  {/* الإنجليزي: ltr */}
+                  <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Message</span>
                   <span className="font-arabic-stylized">الرسالة</span>
                 </label>
                 <Textarea
@@ -190,7 +206,8 @@ export function Contact() {
                 className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-medium rounded-xl flex flex-col gap-0 items-center justify-center"
               >
                 <span className="font-arabic-stylized text-lg font-bold">إرسال الرسالة</span>
-                <span className="font-['Acumin'] text-[10px] uppercase tracking-widest opacity-80">Send Message</span>
+                {/* الإنجليزي: ltr */}
+                <span className="ltr font-['Acumin'] text-[10px] uppercase tracking-widest opacity-80">Send Message</span>
               </Button>
             </form>
           </motion.div>

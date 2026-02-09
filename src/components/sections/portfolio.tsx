@@ -96,8 +96,8 @@ export function Portfolio() {
             <span className="text-sm font-arabic-stylized font-medium tracking-wide text-secondary mb-1">
               أعمالنــا
             </span>
-            {/* الإنجليزي: تعديل الخط */}
-            <span className="text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
+            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="ltr text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
               Our Portfolio
             </span>
           </div>
@@ -107,8 +107,8 @@ export function Portfolio() {
             <span className="font-arabic-stylized text-4xl md:text-5xl">
               مختارات من أعمالنا
             </span>
-            {/* الإنجليزي: تعديل الخط */}
-            <span className="font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="ltr font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
               Selected Works
             </span>
           </h2>
@@ -152,25 +152,25 @@ export function Portfolio() {
                 <div className="absolute inset-0 p-6 flex flex-col justify-end items-start text-right opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
                   
                   {/* التصنيف (عربي + إنجليزي) */}
-                  <div className="flex flex-col items-start mb-2">
+                  <div className="flex flex-col items-start mb-2 w-full"> {/* w-full مهم عشان الـ ltr يشتغل صح جواها */}
                     {/* العربي: تعديل الخط */}
                     <span className="font-arabic-stylized text-secondary text-sm font-bold tracking-wide">
                       {project.categoryAr}
                     </span>
-                    {/* الإنجليزي: تعديل الخط */}
-                    <span className="font-['Acumin'] text-secondary/80 text-[10px] uppercase tracking-wider">
+                    {/* الإنجليزي: تعديل الخط + ltr */}
+                    <span className="ltr font-['Acumin'] text-secondary/80 text-[10px] uppercase tracking-wider w-full text-right"> {/* text-right عشان يفضل يمين */}
                       {project.categoryEn}
                     </span>
                   </div>
 
                   {/* اسم المشروع (عربي + إنجليزي) */}
-                  <h3 className="flex flex-col gap-1 font-semibold text-white">
+                  <h3 className="flex flex-col gap-1 font-semibold text-white w-full">
                     {/* العربي: تعديل الخط */}
                     <span className="font-arabic-stylized text-xl md:text-2xl">
                       {project.titleAr}
                     </span>
-                    {/* الإنجليزي: تعديل الخط */}
-                    <span className="font-['Acumin'] text-sm opacity-80 uppercase tracking-wide">
+                    {/* الإنجليزي: تعديل الخط + ltr */}
+                    <span className="ltr font-['Acumin'] text-sm opacity-80 uppercase tracking-wide w-full text-right"> {/* text-right عشان يفضل يمين */}
                       {project.titleEn}
                     </span>
                   </h3>
@@ -194,8 +194,10 @@ export function Portfolio() {
           <button className="px-10 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 rounded-full flex flex-col items-center gap-1 group">
             {/* العربي: تعديل الخط */}
             <span className="font-arabic-stylized text-lg font-bold">شاهد كل الأعمال</span>
-            {/* الإنجليزي: تعديل الخط */}
-            <span className="font-['Acumin'] text-xs uppercase tracking-widest opacity-80 group-hover:opacity-100">View All Projects</span>
+            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="ltr font-['Acumin'] text-xs uppercase tracking-widest opacity-80 group-hover:opacity-100">
+                View All Projects
+            </span>
           </button>
         </motion.div>
       </div>

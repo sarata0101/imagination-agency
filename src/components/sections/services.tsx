@@ -69,8 +69,8 @@ export function Services() {
             <span className="text-sm font-arabic-stylized font-medium tracking-wide text-secondary mb-1">
               ماذا نقدم
             </span>
-            {/* الإنجليزي: تعديل الخط */}
-            <span className="text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
+            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="ltr text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
               What We Do
             </span>
           </div>
@@ -80,8 +80,8 @@ export function Services() {
             <span className="font-arabic-stylized text-4xl md:text-5xl">
               خدماتنــا
             </span>
-            {/* الإنجليزي: تعديل الخط */}
-            <span className="font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
+            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="ltr font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
               Our Services
             </span>
           </h2>
@@ -120,24 +120,24 @@ export function Services() {
                     <h3 className="font-arabic-stylized text-2xl font-bold text-foreground mb-1">
                       {service.titleAr}
                     </h3>
-                    {/* الإنجليزي: تعديل الخط */}
-                    <p className="font-['Acumin'] text-sm font-medium text-muted-foreground/60 uppercase tracking-wide">
+                    {/* الإنجليزي: تعديل الخط + ltr + محاذاة يمين */}
+                    <p className="ltr w-full text-right font-['Acumin'] text-sm font-medium text-muted-foreground/60 uppercase tracking-wide">
                       {service.titleEn}
                     </p>
                   </div>
                   
                   {/* الوصف */}
-                  <div className="mb-6">
+                  <div className="mb-6 w-full">
                     {/* العربي: تعديل الخط */}
                     <p className="font-arabic-stylized text-muted-foreground leading-relaxed text-lg mb-2">
                       {service.descAr}
                     </p>
-                    {/* الإنجليزي: تعديل الخط */}
-                    <p className="font-['Acumin'] text-sm text-muted-foreground/60 leading-relaxed dir-ltr text-left">
+                    {/* الإنجليزي: تعديل الخط + ltr + محاذاة يسار (لأنه باراجراف) */}
+                    <p className="ltr w-full text-left font-['Acumin'] text-sm text-muted-foreground/60 leading-relaxed">
                       {service.descEn}
                     </p>
                   </div>
-
+                  
                   {/* رابط اقرأ المزيد */}
                   <div className="mt-auto flex items-center text-secondary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2">
                     {/* العربي: تعديل الخط */}

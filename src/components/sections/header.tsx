@@ -70,8 +70,8 @@ export function Header() {
                   <span className="font-arabic-stylized font-medium text-base text-foreground group-hover:text-secondary">
                     {link.nameAr}
                   </span>
-                  {/* الإنجليزي: استخدمنا خط Acumin */}
-                  <span className="font-['Acumin'] text-[10px] font-medium tracking-wider text-muted-foreground uppercase group-hover:text-secondary/80">
+                  {/* الإنجليزي: ضفنا ltr عشان يتظبط */}
+                  <span className="ltr font-['Acumin'] text-[10px] font-medium tracking-wider text-muted-foreground uppercase group-hover:text-secondary/80">
                     {link.nameEn}
                   </span>
                 </a>
@@ -82,7 +82,8 @@ export function Header() {
             <div className="hidden md:block">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-6 h-auto flex flex-col items-center leading-none gap-1 shadow-md">
                 <span className="font-arabic-stylized text-sm font-bold">ابدأ مشروعك</span>
-                <span className="font-['Acumin'] text-[10px] tracking-wide opacity-90 uppercase">Start a Project</span>
+                {/* الإنجليزي: ضفنا ltr */}
+                <span className="ltr font-['Acumin'] text-[10px] tracking-wide opacity-90 uppercase">Start a Project</span>
               </Button>
             </div>
 
@@ -124,8 +125,8 @@ export function Header() {
                   <span className="font-arabic-stylized text-2xl font-bold text-foreground group-hover:text-secondary">
                     {link.nameAr}
                   </span>
-                  {/* الإنجليزي */}
-                  <span className="font-['Acumin'] text-sm font-medium tracking-widest text-muted-foreground uppercase">
+                  {/* الإنجليزي: ضفنا ltr */}
+                  <span className="ltr font-['Acumin'] text-sm font-medium tracking-widest text-muted-foreground uppercase">
                     {link.nameEn}
                   </span>
                 </motion.a>
@@ -133,7 +134,8 @@ export function Header() {
               <div className="mt-4 w-full">
                 <Button className="w-full bg-primary hover:bg-primary/90 rounded-full py-8 h-auto flex flex-col gap-2">
                     <span className="font-arabic-stylized text-lg font-bold">ابدأ مشروعك</span>
-                    <span className="font-['Acumin'] text-xs tracking-wide uppercase">Start a Project</span>
+                    {/* الإنجليزي: ضفنا ltr */}
+                    <span className="ltr font-['Acumin'] text-xs tracking-wide uppercase">Start a Project</span>
                 </Button>
               </div>
             </div>

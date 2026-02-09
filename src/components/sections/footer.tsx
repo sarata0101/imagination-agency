@@ -79,8 +79,8 @@ export function Footer() {
               <span className="font-arabic-stylized text-lg">
                 نحول الشغف إلى واقع من خلال إبداع جريء وحرفية استثنائية.
               </span>
-              {/* الإنجليزي: تعديل الخط */}
-              <span className="font-['Acumin'] text-sm opacity-60">
+              {/* الإنجليزي: تعديل الخط + ltr + محاذاة يمين */}
+              <span className="ltr font-['Acumin'] text-sm opacity-60 w-full text-right">
                 Turning passion into reality through bold creativity and exceptional craftsmanship.
               </span>
             </p>
@@ -115,8 +115,8 @@ export function Footer() {
                 <span className="font-arabic-stylized text-lg text-white">
                   {section.titleAr}
                 </span>
-                {/* الإنجليزي: تعديل الخط */}
-                <span className="font-['Acumin'] text-xs text-background/50 uppercase tracking-widest">
+                {/* الإنجليزي: تعديل الخط + ltr + محاذاة يمين */}
+                <span className="ltr font-['Acumin'] text-xs text-background/50 uppercase tracking-widest w-full text-right">
                   {section.titleEn}
                 </span>
               </h4>
@@ -133,8 +133,8 @@ export function Footer() {
                       <span className="font-arabic-stylized text-base group-hover:translate-x-[-4px] transition-transform">
                         {link.ar}
                       </span>
-                      {/* الإنجليزي: تعديل الخط */}
-                      <span className="font-['Acumin'] text-[10px] opacity-50 uppercase tracking-wide group-hover:opacity-80">
+                      {/* الإنجليزي: تعديل الخط + ltr + محاذاة يمين */}
+                      <span className="ltr font-['Acumin'] text-[10px] opacity-50 uppercase tracking-wide group-hover:opacity-80 w-full text-right">
                         {link.en}
                       </span>
                     </a>
@@ -150,21 +150,21 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
             
             {/* حقوق النشر */}
-            <p className="text-background/40 text-sm flex flex-col md:flex-row gap-1">
+            <p className="text-background/40 text-sm flex flex-col md:flex-row gap-1 items-center md:items-start">
               {/* العربي: تعديل الخط */}
               <span className="font-arabic-stylized">
                 &copy; {new Date().getFullYear()} وكالة تخيُّل. جميع الحقوق محفوظة.
               </span>
-              {/* الإنجليزي: تعديل الخط */}
-              <span className="font-['Acumin'] opacity-60">
+              {/* الإنجليزي: تعديل الخط + ltr */}
+              <span className="ltr font-['Acumin'] opacity-60">
                 | All rights reserved.
               </span>
             </p>
 
             {/* صنع في السعودية */}
             <p className="text-background/40 text-sm flex items-center gap-2">
-              {/* الإنجليزي: تعديل الخط */}
-              <span className="font-['Acumin'] opacity-60 uppercase tracking-widest text-[10px]">
+              {/* الإنجليزي: تعديل الخط + ltr */}
+              <span className="ltr font-['Acumin'] opacity-60 uppercase tracking-widest text-[10px]">
                 Crafted with passion in
               </span>
               {/* العربي: تعديل الخط */}

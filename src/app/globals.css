@@ -1,31 +1,35 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* 1. الخلفية: بيج كريمي فاتح (Soft Cream) */
+  /* ========================================================
+     1. الألوان (بيج كريمي - بني محروق - تيركاوت)
+     ======================================================== */
+  
+  /* الخلفية: بيج كريمي فاتح (Soft Cream) */
   --background: #FAF9F6;       
   
-  /* 2. النص: بني محروق (Dark Espresso) - بدل الأسود */
+  /* النص: بني محروق (Dark Espresso) */
   --foreground: #2E2522;       
 
-  /* 3. الكروت: أبيض صريح */
+  /* الكروت: أبيض صريح */
   --card: #FFFFFF;
-  --card-foreground: #2E2522; /* النص بني محروق */
+  --card-foreground: #2E2522;
 
   --popover: #FFFFFF;
   --popover-foreground: #2E2522;
 
-  /* 4. اللون الأساسي: بيج غامق (Dark Taupe) - للزراير */
+  /* اللون الأساسي: بيج غامق (Dark Taupe) */
   --primary: #998472;          
-  --primary-foreground: #FFFFFF; /* النص أبيض */
+  --primary-foreground: #FFFFFF;
 
-  /* 5. اللون الثانوي: أحمر فخاري (Terracotta) */
+  /* اللون الثانوي: أحمر فخاري (Terracotta) */
   --secondary: #C06C5B;        
   --secondary-foreground: #FFFFFF;
 
-  /* لون العناصر الهادية: بيج بني فاتح (Beige Brown) */
+  /* لون العناصر الهادية: بيج بني فاتح */
   --muted: #E6DED5;
   --muted-foreground: #6B5D55;
 
@@ -36,13 +40,13 @@
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
 
-  --border: #E6DED5; /* خليت البوردر بيج فاتح */
+  --border: #E6DED5; /* بوردر بيج فاتح */
   --input: #E6DED5;
   
-  /* حلقة التركيز: بيج غامق (نفس البرايمري) */
+  /* حلقة التركيز: بيج غامق */
   --ring: #998472;             
 
-  /* ألوان الشارتات (زي ما هي) */
+  /* ألوان الشارتات */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -62,10 +66,14 @@
 }
 
 .dark {
-  /* خلفية سوداء دافئة جداً (Dark Brown/Black) */
+  /* ========================================================
+     الوضع الليلي (بني غامق جداً - بيج فاتح)
+     ======================================================== */
+  
+  /* خلفية سوداء دافئة جداً */
   --background: #141110;       
   
-  /* الكلام بيج فاتح */
+  /* النص بيج فاتح */
   --foreground: #FAF9F6;       
   
   /* الكروت بني محروق غامق */
@@ -75,11 +83,9 @@
   --popover: #1F1A18;
   --popover-foreground: #FAF9F6;
   
-  /* البرايمري يفضل بيج غامق (Taupe) */
   --primary: #998472;          
   --primary-foreground: #FFFFFF;
   
-  /* الثانوي يفضل تيركاوت */
   --secondary: #C06C5B;        
   --secondary-foreground: #FFFFFF;
   
@@ -113,9 +119,15 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-sans), 'Inter', system-ui, sans-serif;
-  --font-heading: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  /* ========================================================
+     2. تعريف الخطوط (الحل السحري للابتوب)
+     ======================================================== */
+  
+  /* بنربط المتغيرات (اللي جاية من layout.tsx) بأسماء Tailwind */
+  --font-sans: var(--font-acumin), var(--font-thmanyah-sans), sans-serif;
+  --font-serif: var(--font-thmanyah-serif), var(--font-lyon), serif;
+  
+  /* باقي تعريفات الثيم والألوان */
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-background: var(--background);
@@ -160,7 +172,50 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    /* ========================================================
+       3. الإجبار النهائي (عشان اللابتوب يفهم)
+       ======================================================== */
+    font-family: var(--font-acumin), var(--font-thmanyah-sans), sans-serif !important;
+  }
+
+  /* إجبار العناوين تستخدم الخط السيريف (أبو حركات) */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-thmanyah-serif), serif !important;
+  }
+}
+
+@layer utilities {
+  .font-arabic-stylized {
+    /* كلاس الدلع */
+    font-family: var(--font-thmanyah-serif), serif !important;
+    
+    /* تفعيل الحركات */
+    font-feature-settings: "swsh" 1, "ss01" 1, "calt" 1, "liga" 1;
+    -webkit-font-feature-settings: "swsh" 1, "ss01" 1, "calt" 1, "liga" 1;
+    
+    /* وزن البلاك عشان يبقى واضح */
+    font-weight: 900; 
+  }
+  /* تعديل كلاس الإنجليزي عشان يبقى في النص والنقطة مظبوطة */
+  .ltr {
+    direction: ltr !important;      /* عشان النقطة تيجي يمين */
+    text-align: center !important;  /* عشان الكلام يفضل في النص */
+  }
+
+  /* 2. كلاس للعربي الصريح (لو حصل لخبطة وعايزة تجبريه يمين) */
+  .rtl {
+    direction: rtl !important;
+    text-align: right !important;
+    display: inline-block;
+  }
+  
+  /* 3. كلاس للأرقام بس (عشان يحافظ على شكلها من غير ما يشقلبها) */
+  .nums {
+    font-variant-numeric: tabular-nums;
+    direction: ltr;
+    display: inline-block;
   }
 }
