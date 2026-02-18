@@ -200,9 +200,10 @@
     font-weight: 900; 
   }
   /* تعديل كلاس الإنجليزي عشان يبقى في النص والنقطة مظبوطة */
-  .ltr {
-    direction: ltr !important;      /* عشان النقطة تيجي يمين */
-    text-align: center !important;  /* عشان الكلام يفضل في النص */
+ .ltr {
+    direction: ltr !important;      /* نسيب دي عشان النقط والرموز تظبط */
+    /* مسحنا text-align: center !important; من هنا */
+    display: inline-block;          /* عشان يقبل الفليكس والمارجن */
   }
 
   /* 2. كلاس للعربي الصريح (لو حصل لخبطة وعايزة تجبريه يمين) */

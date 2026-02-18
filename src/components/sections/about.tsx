@@ -1,0 +1,150 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const stats = [
+  { number: "+8", labelAr: "سنوات من الخبرة", labelEn: "Years of Experience" },
+  { number: "+100", labelAr: "مشروع ناجح", labelEn: "Successful Projects" },
+  { number: "+35", labelAr: "شريك نجاح", labelEn: "Happy Clients" },
+  { number: "2", labelAr: "مقر رئيسي", labelEn: "Main Hubs (Riyadh & Cairo)" },
+];
+
+export function About() {
+  return (
+    <section id="about" className="relative bg-[#483C32] text-white overflow-hidden">
+      
+      {/* ============================================================
+          1. الحل السحري: فاصل أبيض (Spacer) في الأول
+          ده بيبعد القوس عن أزرار الـ Hero بمسافة آمنة (h-24)
+         ============================================================ */}
+      <div className="w-full h-24 bg-background border-none m-0 p-0 block" />
+
+      {/* ============================================================
+          2. القوس (الفاصل): رسمنا "تلة" ناعمة جداً
+         ============================================================ */}
+      <div className="absolute top-24 left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
+        <svg
+          className="relative block w-full h-[60px] md:h-[100px]" // ارتفاع معقول للقوس
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          {/* المسار ده بيرسم "أركان بيضاء" ويسيب النص فاضي عشان يعمل شكل التلة */}
+          <path
+            d="M0,0 H1200 V120 Q600,0 0,120 Z" 
+            className="fill-background"
+          ></path>
+        </svg>
+      </div>
+
+      {/* ============================================================
+          3. الخلفية والزخارف (نفس روح الـ CTA)
+         ============================================================ */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none mt-24">
+        <svg
+          className="absolute top-0 left-0 w-full h-full opacity-10"
+          viewBox="0 0 1200 600"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,200 Q300,50 600,200 T1200,200"
+            stroke="white"
+            strokeWidth="2"
+            fill="none"
+          />
+          <path
+            d="M0,300 Q400,100 800,300 T1600,300"
+            stroke="white"
+            strokeWidth="1.5"
+            fill="none"
+            opacity="0.6"
+          />
+        </svg>
+      </div>
+
+      {/* ============================================================
+          4. المحتوى (بعدنا الـ pt لـ 32 عشان ينزل تحت القوس براحته)
+         ============================================================ */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center pt-32 pb-32 px-6">
+        
+        {/* العناوين (منسقة زي Hero و Services بالظبط) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 flex flex-col items-center"
+        >
+          {/* البادج الصغير */}
+          <div className="flex flex-col items-center mb-6">
+            <span className="text-sm font-arabic-stylized font-medium tracking-wide text-[#c06c5b] mb-1">
+              قصتنا
+            </span>
+            <span className="ltr text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-white/60">
+              Our Story
+            </span>
+          </div>
+
+          {/* العنوان الرئيسي */}
+          <h2 className="flex flex-col gap-2 font-bold leading-tight">
+            <span className="font-arabic-stylized text-4xl md:text-7xl text-white">
+              أكثر من مجرد وكالة..
+              <br />
+              <span className="text-[#c06c5b]">نحن صناع أثر.</span>
+            </span>
+            
+            <span className="ltr font-['Acumin'] text-xl md:text-3xl text-white/80 uppercase tracking-tight mt-4 opacity-80">
+              More Than An Agency.. <span className="text-[#c06c5b]">Impact Makers.</span>
+            </span>
+          </h2>
+        </motion.div>
+
+        {/* النص (Story Text) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto mb-24 space-y-8"
+        >
+          <p className="font-arabic-stylized text-2xl md:text-3xl text-white/90 leading-[1.8]">
+            منذ انطلاقتنا في <span className="text-[#c06c5b] font-bold">2018</span>، أخذنا على عاتقنا مهمة واحدة: خلق محتوى هادف يبني وعياً حقيقياً. 
+            نحن لا ننتج مجرد محتوى؛ نحن نساعدك في نشر رسالة تترك بصمة في كل منصات التواصل، بكل أشكال المحتوى واختلافاته.
+          </p>
+          
+          <p className="ltr font-['Acumin'] text-base md:text-lg text-white/60 uppercase tracking-wide leading-relaxed max-w-3xl mx-auto">
+            Since 2018, we've been dedicated to creating meaningful content that builds real awareness. We don't just produce; we help you spread a message that leaves a mark across all platforms.
+          </p>
+        </motion.div>
+
+        {/* الأرقام (Stats) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/10 pt-16">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
+              className="flex flex-col items-center justify-start"
+            >
+              <span className="ltr font-['Acumin'] text-5xl md:text-7xl font-bold text-[#c06c5b] mb-4">
+                {stat.number}
+              </span>
+              <span className="font-arabic-stylized text-xl text-white font-medium mb-1 whitespace-nowrap">
+                {stat.labelAr}
+              </span>
+              <span className="ltr font-['Acumin'] text-[10px] md:text-xs text-white/50 uppercase tracking-widest whitespace-nowrap">
+                {stat.labelEn}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}

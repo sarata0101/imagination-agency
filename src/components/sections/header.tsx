@@ -6,11 +6,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-// 1. القائمة بقت تحتوي على العربي والإنجليزي مع بعض
+// 1. التعديل هنا: نقلنا "من نحن" في الأول خالص
 const navLinks = [
+  { nameAr: "من نحن", nameEn: "About", href: "#about" }, // جت هنا رقم 1
   { nameAr: "خدماتنا", nameEn: "Services", href: "#services" },
   { nameAr: "أعمالنا", nameEn: "Portfolio", href: "#portfolio" },
-  { nameAr: "من نحن", nameEn: "About", href: "#about" },
   { nameAr: "تواصل معنا", nameEn: "Contact", href: "#contact" },
 ];
 
@@ -39,20 +39,18 @@ export function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
-          {/* 1. (تعديل هام) كبرنا ارتفاع الـ Nav لـ h-32 بدل h-24 عشان يستوعب اللوجو الكبير */}
+          {/* ارتفاع الـ Nav */}
           <nav className="flex items-center justify-between h-32 transition-all duration-300">
             
             {/* Logo */}
             <a href="/" className="flex items-center gap-3">
-              {/* 2. (تعديل هام) كبرنا أبعاد اللوجو جداً */}
-              {/* الموبايل: w-48 h-16 (كبير وواضح) */}
-              {/* الديسكوتوب: w-80 h-28 (ضخم) */}
+              {/* أبعاد اللوجو الكبيرة */}
               <div className="relative w-48 h-16 md:w-80 md:h-28 transition-all duration-300">
                 <Image 
                   src="/logo-full.svg" 
                   alt="Imagination Logo" 
                   fill 
-                  className="object-contain" // دي بتخلي اللوجو يبان كامل جوه المربع
+                  className="object-contain"
                   priority
                 />
               </div>
@@ -66,11 +64,11 @@ export function Header() {
                   href={link.href}
                   className="group flex flex-col items-center text-center transition-colors"
                 >
-                  {/* العربي: استخدمنا الكلاس الجديد font-arabic-stylized */}
+                  {/* العربي */}
                   <span className="font-arabic-stylized font-medium text-base text-foreground group-hover:text-secondary">
                     {link.nameAr}
                   </span>
-                  {/* الإنجليزي: ضفنا ltr عشان يتظبط */}
+                  {/* الإنجليزي */}
                   <span className="ltr font-['Acumin'] text-[10px] font-medium tracking-wider text-muted-foreground uppercase group-hover:text-secondary/80">
                     {link.nameEn}
                   </span>
@@ -82,7 +80,6 @@ export function Header() {
             <div className="hidden md:block">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-6 h-auto flex flex-col items-center leading-none gap-1 shadow-md">
                 <span className="font-arabic-stylized text-sm font-bold">ابدأ مشروعك</span>
-                {/* الإنجليزي: ضفنا ltr */}
                 <span className="ltr font-['Acumin'] text-[10px] tracking-wide opacity-90 uppercase">Start a Project</span>
               </Button>
             </div>
@@ -125,7 +122,7 @@ export function Header() {
                   <span className="font-arabic-stylized text-2xl font-bold text-foreground group-hover:text-secondary">
                     {link.nameAr}
                   </span>
-                  {/* الإنجليزي: ضفنا ltr */}
+                  {/* الإنجليزي */}
                   <span className="ltr font-['Acumin'] text-sm font-medium tracking-widest text-muted-foreground uppercase">
                     {link.nameEn}
                   </span>
@@ -134,7 +131,6 @@ export function Header() {
               <div className="mt-4 w-full">
                 <Button className="w-full bg-primary hover:bg-primary/90 rounded-full py-8 h-auto flex flex-col gap-2">
                     <span className="font-arabic-stylized text-lg font-bold">ابدأ مشروعك</span>
-                    {/* الإنجليزي: ضفنا ltr */}
                     <span className="ltr font-['Acumin'] text-xs tracking-wide uppercase">Start a Project</span>
                 </Button>
               </div>
