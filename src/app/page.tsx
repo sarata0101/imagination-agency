@@ -14,7 +14,10 @@ export default function Home() {
       <Hero />
       
       {/* قسم من نحن */}
-      <About />
+     
+      <section id="About">
+        <About />
+      </section>
 
       {/* قسم الخدمات */}
       <section id="services">

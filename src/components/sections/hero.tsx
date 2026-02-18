@@ -56,7 +56,7 @@ export function Hero() {
       {/* =========================================================
           2. المحتوى (تم تطبيق LTR على الإنجليزي وحذف الشكل الزيادة)
          ========================================================= */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative py-32 z-10 max-w-6xl mx-auto px-6 text-center">
         
         {/* البادج الصغير */}
         <motion.div

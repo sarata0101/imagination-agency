@@ -11,37 +11,16 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#483C32] text-white overflow-hidden">
+    // 1. التعديل هنا: overflow-visible عشان القوس يطلع بره، وشيلنا الفاصل الأبيض
+    <section id="about" className="relative py-40 px-6 bg-[#483C32] text-white overflow-hidden">
       
-      {/* ============================================================
-          1. الحل السحري: فاصل أبيض (Spacer) في الأول
-          ده بيبعد القوس عن أزرار الـ Hero بمسافة آمنة (h-24)
-         ============================================================ */}
-      <div className="w-full h-24 bg-background border-none m-0 p-0 block" />
+              
+      
 
       {/* ============================================================
-          2. القوس (الفاصل): رسمنا "تلة" ناعمة جداً
+          3. الخلفية والزخارف (زي ما هي بالظبط)
          ============================================================ */}
-      <div className="absolute top-24 left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
-        <svg
-          className="relative block w-full h-[60px] md:h-[100px]" // ارتفاع معقول للقوس
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          {/* المسار ده بيرسم "أركان بيضاء" ويسيب النص فاضي عشان يعمل شكل التلة */}
-          <path
-            d="M0,0 H1200 V120 Q600,0 0,120 Z" 
-            className="fill-background"
-          ></path>
-        </svg>
-      </div>
-
-      {/* ============================================================
-          3. الخلفية والزخارف (نفس روح الـ CTA)
-         ============================================================ */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none mt-24">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <svg
           className="absolute top-0 left-0 w-full h-full opacity-10"
           viewBox="0 0 1200 600"
@@ -63,14 +42,49 @@ export function About() {
             opacity="0.6"
           />
         </svg>
+        <motion.div
+          initial={{ opacity: 0, pathLength: 0 }}
+          whileInView={{ opacity: 0.1, pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute -left-20 top-1/2 -translate-y-1/2"
+        >
+          <svg width="400" height="300" viewBox="0 0 400 300" fill="none">
+            <path
+              d="M10,150 Q100,50 200,150 Q300,250 390,150"
+              stroke="#c06c5b"
+              strokeWidth="4"
+              fill="none"
+              strokeLinecap="round"
+            />
+          </svg>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+          className="absolute -right-20 top-1/4"
+        >
+          <svg width="300" height="400" viewBox="0 0 300 400" fill="none">
+            <path
+              d="M290,10 Q150,100 290,200 Q150,300 290,390"
+              stroke="#c06c5b"
+              strokeWidth="3"
+              fill="none"
+              strokeLinecap="round"
+            />
+          </svg>
+        </motion.div>
       </div>
 
       {/* ============================================================
-          4. المحتوى (بعدنا الـ pt لـ 32 عشان ينزل تحت القوس براحته)
+          4. المحتوى (زي ما هو بالظبط مع الحفاظ على المسافات)
          ============================================================ */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center pt-32 pb-32 px-6">
+      <div className="relative z-10 max-w-6xl mx-auto text-center px-6">
         
-        {/* العناوين (منسقة زي Hero و Services بالظبط) */}
+        {/* العناوين */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +92,6 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="mb-20 flex flex-col items-center"
         >
-          {/* البادج الصغير */}
           <div className="flex flex-col items-center mb-6">
             <span className="text-sm font-arabic-stylized font-medium tracking-wide text-[#c06c5b] mb-1">
               قصتنا
@@ -88,7 +101,6 @@ export function About() {
             </span>
           </div>
 
-          {/* العنوان الرئيسي */}
           <h2 className="flex flex-col gap-2 font-bold leading-tight">
             <span className="font-arabic-stylized text-4xl md:text-7xl text-white">
               أكثر من مجرد وكالة..
@@ -102,7 +114,7 @@ export function About() {
           </h2>
         </motion.div>
 
-        {/* النص (Story Text) */}
+        {/* النص */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
