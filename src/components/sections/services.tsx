@@ -1,62 +1,84 @@
 "use client";
 
-import { Video, Headphones, Palette } from "lucide-react";
+import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import {
+  Palette,
+  Scissors,
+  FileText,
+  Video,
+  Camera,
+  MapPin,
+  Clapperboard,
+  Film,
+  Mic,
+  Sparkles,
+  LayoutGrid,
+  PenTool,
+  PenLine,
+  Languages,
+  Megaphone,
+  Target,
+} from "lucide-react";
 
-// 1. القائمة الجديدة (فيها العربي والإنجليزي)
-const services = [
-  {
-    icon: Video,
-    titleAr: "الإنتاج المرئي",
-    titleEn: "Visual Production",
-    descAr: "من الفكرة إلى الشاشة، نصنع محتوى بصرياً مذهلاً يروي قصتك ببراعة سينمائية تخطف الأنظار.",
-    descEn: "From concept to screen, we create stunning visual content that captures attention and tells your story with cinematic excellence.",
-  },
-  {
-    icon: Headphones,
-    titleAr: "الإنتاج الصوتي",
-    titleEn: "Audio Production",
-    descAr: "تجارب صوتية غامرة وهندسة دقيقة ترفع من صوت علامتك التجارية وتخلق أثراً لا يُنسى.",
-    descEn: "Immersive soundscapes and crystal-clear audio that elevate your brand's voice and create memorable auditory experiences.",
-  },
-  {
-    icon: Palette,
-    titleAr: "صياغة الهوية",
-    titleEn: "Brand Crafting",
-    descAr: "تطوير استراتيجي يبلور جوهرك في هوية بصرية متماسكة، لتضعك في مكانة متميزة ودائمة.",
-    descEn: "Strategic brand development that distills your essence into a cohesive visual identity, positioning you for lasting impact.",
-  },
-];
-
-// 2. تعريف الحركات (مع تحديد النوع Variants عشان الخطأ يختفي)
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
+
+const categories = [
+  {
+    titleAr: "خدمات الهوية والتصميم",
+    titleEn: "Brand Identity & Design",
+    items: [
+      { slug: "designs", titleAr: "ديزاينات", titleEn: "Designs", icon: Palette },
+      { slug: "editing", titleAr: "إيديتينج", titleEn: "Editing", icon: Scissors },
+      { slug: "company-profile-layout", titleAr: "بروفايل + لاي أوت", titleEn: "Profile + Layout", icon: FileText },
+    ],
+  },
+  {
+    titleAr: "الإنتاج المرئي والمسموع",
+    titleEn: "Media Production",
+    items: [
+      { slug: "video-shooting", titleAr: "تصوير فيديو", titleEn: "Video", icon: Video },
+      { slug: "photography", titleAr: "تصوير فوتو", titleEn: "Photo", icon: Camera },
+      { slug: "exterior-coverage", titleAr: "تغطيات خارجية", titleEn: "Coverage", icon: MapPin },
+      { slug: "reels-shooting", titleAr: "تصوير ريلز", titleEn: "Reels", icon: Clapperboard },
+      { slug: "montage", titleAr: "مونتاج", titleEn: "Post-Production", icon: Film },
+      { slug: "voice-recording", titleAr: "تسجيل صوتي", titleEn: "Voice", icon: Mic },
+      { slug: "ai-production", titleAr: "إنتاج AI", titleEn: "AI Production", icon: Sparkles },
+    ],
+  },
+  {
+    titleAr: "إدارة وصناعة المحتوى",
+    titleEn: "Content Creation & Management",
+    items: [
+      { slug: "social-media-management", titleAr: "إدارة صفحات", titleEn: "Management", icon: LayoutGrid },
+      { slug: "content-writing", titleAr: "كتابة كونتنت", titleEn: "Content", icon: PenTool },
+      { slug: "script-writing", titleAr: "كتابة اسكربتات", titleEn: "Scripts", icon: PenLine },
+      { slug: "dialect-correction", titleAr: "تصحيح لهجة", titleEn: "Dialect", icon: Languages },
+    ],
+  },
+  {
+    titleAr: "التسويق والنمو",
+    titleEn: "Marketing & Growth",
+    items: [
+      { slug: "marketing", titleAr: "التسويق عموماً", titleEn: "Marketing", icon: Megaphone },
+      { slug: "media-buying", titleAr: "ميديا باينج", titleEn: "Media Buying", icon: Target },
+    ],
+  },
+];
 
 export function Services() {
   return (
     <section className="py-32 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        
-        {/* عنوان القسم (عربي + إنجليزي) */}
+        {/* عنوان القسم الرئيسي */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,102 +87,84 @@ export function Services() {
           className="text-center mb-20 flex flex-col items-center"
         >
           <div className="flex flex-col items-center mb-4">
-            {/* العربي: تعديل الخط */}
             <span className="text-sm font-arabic-stylized font-medium tracking-wide text-secondary mb-1">
               ماذا نقدم
             </span>
-            {/* الإنجليزي: تعديل الخط + ltr */}
             <span className="ltr text-[10px] font-['Acumin'] tracking-[0.2em] uppercase text-secondary/70">
               What We Do
             </span>
           </div>
-          
+
           <h2 className="flex flex-col items-center gap-2 font-bold text-foreground">
-            {/* العربي: تعديل الخط */}
-            <span className="font-arabic-stylized text-4xl md:text-5xl">
-              خدماتنــا
-            </span>
-            {/* الإنجليزي: تعديل الخط + ltr */}
+            <span className="font-arabic-stylized text-4xl md:text-5xl">خدماتنــا</span>
             <span className="ltr font-['Acumin'] text-xl md:text-2xl text-muted-foreground/60 uppercase tracking-tight">
               Our Services
             </span>
           </h2>
         </motion.div>
 
-        {/* كروت الخدمات */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {services.map((service) => {
-            // تحويل الأيقونة لمكون عشان نقدر نستخدمها
-            const IconComponent = service.icon;
-            
-            return (
+        {/* الأقسام الأربعة */}
+        <div className="space-y-16">
+          {categories.map((cat) => (
+            <section key={cat.titleEn}>
+              {/* عنوان القسم الفرعي */}
               <motion.div
-                key={service.titleEn}
-                variants={cardVariants}
-                className="group relative p-10 bg-card border border-border rounded-2xl hover:border-primary/30 transition-all duration-500"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-center mb-10 flex flex-col items-center"
               >
-                {/* الإضاءة الخلفية */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-                
-                <div className="relative flex flex-col items-start text-right"> 
-                  {/* الأيقونة */}
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                    <IconComponent className="w-7 h-7 text-primary" />
-                  </div>
-                  
-                  {/* العنوان */}
-                  <div className="mb-4 w-full">
-                    {/* العربي: تعديل الخط */}
-                    <h3 className="font-arabic-stylized text-2xl font-bold text-foreground mb-1">
-                      {service.titleAr}
-                    </h3>
-                    {/* الإنجليزي: تعديل الخط + ltr + محاذاة يمين */}
-                    <p className="ltr w-full text-right font-['Acumin'] text-sm font-medium text-muted-foreground/60 uppercase tracking-wide">
-                      {service.titleEn}
-                    </p>
-                  </div>
-                  
-                  {/* الوصف */}
-                  <div className="mb-6 w-full">
-                    {/* العربي: تعديل الخط */}
-                    <p className="font-arabic-stylized text-muted-foreground leading-relaxed text-lg mb-2">
-                      {service.descAr}
-                    </p>
-                    {/* الإنجليزي: تعديل الخط + ltr + محاذاة يسار (لأنه باراجراف) */}
-                    <p className="ltr w-full text-left font-['Acumin'] text-sm text-muted-foreground/60 leading-relaxed">
-                      {service.descEn}
-                    </p>
-                  </div>
-                  
-                  {/* رابط اقرأ المزيد */}
-                  <div className="mt-auto flex items-center text-secondary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2">
-                    {/* العربي: تعديل الخط */}
-                    <span className="font-arabic-stylized text-sm">اقرأ المزيد</span>
-                    <svg
-                      className="w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                <span className="font-arabic-stylized text-2xl md:text-3xl font-bold text-foreground">
+                  {cat.titleAr}
+                </span>
+                <span className="ltr font-['Acumin'] text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground/70 mt-2">
+                  {cat.titleEn}
+                </span>
+                <div className="mt-6 h-px w-40 bg-border" />
               </motion.div>
-            );
-          })}
-        </motion.div>
+
+              {/* ✅ Flex + max-width = 3 في الموبايل / 4 في الديسكتوب + توسيط كل الصفوف */}
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="mx-auto flex flex-wrap justify-center gap-4 md:gap-6 max-w-[520px] md:max-w-[800px]"
+              >
+                {cat.items.map((s) => {
+                  const Icon = s.icon;
+
+                  return (
+                    <motion.div key={s.slug} variants={itemVariants}>
+                      <Link
+                        href={`/services/${s.slug}`}
+                        className="group block w-[160px] md:w-[180px] rounded-2xl border border-border bg-card hover:border-primary/30 transition-all duration-500 p-4 md:p-5 text-center"
+                      >
+                        <div className="mx-auto mb-3 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                          <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                        </div>
+
+                        <div className="space-y-1">
+                          <p className="font-arabic-stylized text-sm md:text-base font-bold text-foreground leading-snug">
+                            {s.titleAr}
+                          </p>
+                          <p className="ltr font-['Acumin'] text-[9px] md:text-[10px] uppercase tracking-wider text-muted-foreground/70">
+                            {s.titleEn}
+                          </p>
+                        </div>
+
+                        <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="font-arabic-stylized text-[11px] text-secondary">اعرف المزيد</span>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </section>
+          ))}
+        </div>
       </div>
     </section>
   );
