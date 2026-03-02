@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Contact } from "@/components/sections/contact";
 import type { ServiceData } from "@/components/sections/services-data";
+import { useMemo, useState } from "react";
+import { Play } from "lucide-react";
 
 /* Animations (نفس ستايل أقسامك) */
 const containerVariants: Variants = {
@@ -16,6 +18,111 @@ const itemVariants: Variants = {
   hidden: { opacity: 0, y: 26 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
+
+/* =========================
+   Drive thumbnail helpers
+   ========================= */
+function extractDriveFileId(url?: string | null): string | null {
+  if (!url) return null;
+
+  // /file/d/FILE_ID/view
+  const m1 = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (m1?.[1]) return m1[1];
+
+  // open?id=FILE_ID أو uc?id=FILE_ID
+  try {
+    const u = new URL(url);
+    const id = u.searchParams.get("id");
+    if (id) return id;
+  } catch {
+    /* ignore */
+  }
+
+  return null;
+}
+
+/**
+ * Google Drive sometimes blocks hotlinking thumbnails.
+ * These 3 URLs are tried in order:
+ * 1) drive.google.com thumbnail with authuser
+ * 2) googleusercontent u/0
+ * 3) googleusercontent default
+ */
+function driveThumbPrimary(fileId: string, width = 1200) {
+  return `https://drive.google.com/thumbnail?authuser=0&id=${fileId}&sz=w${width}`;
+}
+
+function driveThumbFallback(fileId: string, width = 1200) {
+  return `https://lh3.googleusercontent.com/u/0/d/${fileId}=w${width}`;
+}
+
+function driveThumbFallback2(fileId: string, width = 1200) {
+  return `https://lh3.googleusercontent.com/d/${fileId}=w${width}`;
+}
+
+function isDriveThumbUrl(src: string) {
+  return (
+    src.includes("drive.google.com/thumbnail") ||
+    src.includes("lh3.googleusercontent.com/")
+  );
+}
+
+/* صورة ذكية:
+   - thumbUrl (من Supabase) لو موجود
+   - وإلا thumbnail من Drive لو الرابط file
+   - وإلا placeholder
+*/
+function SmartThumb({
+  thumbUrl,
+  driveUrl,
+  alt,
+  className,
+  sizes,
+}: {
+  thumbUrl?: string | null;
+  driveUrl?: string | null;
+  alt: string;
+  className?: string;
+  sizes?: string;
+}) {
+  const fileId = useMemo(() => extractDriveFileId(driveUrl), [driveUrl]);
+
+  const sources = useMemo(() => {
+    const arr: string[] = [];
+    if (thumbUrl) arr.push(thumbUrl);
+
+    // لو الرابط drive file نجرّب 3 مصادر thumbnail
+    if (fileId) {
+      arr.push(driveThumbPrimary(fileId, 1200));
+      arr.push(driveThumbFallback(fileId, 1200));
+      arr.push(driveThumbFallback2(fileId, 1200));
+    }
+
+    // fallback الأخير
+    arr.push("/placeholder.svg");
+    return arr;
+  }, [thumbUrl, fileId]);
+
+  const [idx, setIdx] = useState(0);
+  const src = sources[idx];
+
+  // Drive thumbnails ساعات Next optimizer يتعب معها
+  const unoptimized = isDriveThumbUrl(src);
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className={className}
+      sizes={sizes}
+      unoptimized={unoptimized}
+      // مهم جدًا مع Drive thumbnails
+      referrerPolicy="no-referrer"
+      onError={() => setIdx((v) => Math.min(v + 1, sources.length - 1))}
+    />
+  );
+}
 
 export function ServiceDetail({ service }: { service: ServiceData }) {
   return (
@@ -89,7 +196,9 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
           >
             <span className="font-arabic-stylized text-5xl sm:text-7xl md:text-8xl leading-[1.08]">
               <span className="block">{service.heroTitleArTop}</span>
-              <span className="block text-primary mt-4">{service.heroTitleArAccent}</span>
+              <span className="block text-primary mt-4">
+                {service.heroTitleArAccent}
+              </span>
             </span>
 
             <span className="ltr font-['Acumin'] text-2xl sm:text-3xl md:text-4xl text-muted-foreground uppercase tracking-tight opacity-80 leading-tight">
@@ -137,7 +246,7 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
       </section>
 
       {/* =========================
-          WHAT YOU GET (متناسق + آخر صف بيبقى centered بروفيشنال)
+          WHAT YOU GET
          ========================= */}
       <section className="py-32 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
@@ -150,7 +259,6 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
             </span>
           </div>
 
-          {/* Flex wrap عشان لو عدد العناصر فردي يطلع متوازن */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -164,9 +272,10 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
                 variants={itemVariants}
                 className="group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[420px] p-10 bg-card border border-border rounded-2xl hover:border-primary/30 transition-all duration-500"
               >
-                {/* رقم/ديكور بسيط يدي “اكتمال” للكارت */}
                 <div className="mb-7 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <span className="font-['Acumin'] text-sm text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-['Acumin'] text-sm text-primary">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
                 <p className="font-arabic-stylized text-xl text-foreground leading-relaxed text-right">
@@ -233,7 +342,7 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
       </section>
 
       {/* =========================
-          BEST WORK (مكان الصور)
+          BEST WORK (Thumbnail تلقائي من Drive + يفتح Drive عند الضغط)
          ========================= */}
       <section id="service-work" className="py-32 px-6 bg-background scroll-mt-28">
         <div className="max-w-7xl mx-auto">
@@ -257,44 +366,64 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
             </div>
           ) : (
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-              {service.bestWork.map((w) => (
-                <div
-                  key={w.titleEn}
-                  className="group relative break-inside-avoid overflow-hidden rounded-2xl cursor-pointer"
-                >
-                  <div className="relative w-full aspect-[4/3]">
-                    <Image
-                      src={w.image || "/placeholder.svg"}
-                      alt={w.titleEn}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+              {service.bestWork.map((w) => {
+                const driveUrl = (w as any).driveUrl || null;
+                const thumbUrl =
+                  (w as any).thumbUrl || (w as any).image || null;
 
-                    <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                return (
+                  <a
+                    key={`${w.titleEn}-${driveUrl || ""}`}
+                    href={driveUrl || "#"}
+                    target={driveUrl ? "_blank" : undefined}
+                    rel={driveUrl ? "noopener noreferrer" : undefined}
+                    className="group relative break-inside-avoid overflow-hidden rounded-2xl cursor-pointer block"
+                  >
+                    <div className="relative w-full aspect-[4/3]">
+                      <SmartThumb
+                        thumbUrl={thumbUrl}
+                        driveUrl={driveUrl}
+                        alt={w.titleEn || w.titleAr}
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
 
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end items-start text-right opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
-                      <div className="flex flex-col items-start mb-2 w-full">
-                        <span className="font-arabic-stylized text-secondary text-sm font-bold tracking-wide">
-                          {w.categoryAr}
-                        </span>
-                        <span className="ltr font-['Acumin'] text-secondary/80 text-[10px] uppercase tracking-wider w-full text-right">
-                          {w.categoryEn}
-                        </span>
+                      {/* طبقة هوفر */}
+                      <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                      {/* زر تشغيل */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="w-16 h-16 rounded-full bg-secondary/90 flex items-center justify-center">
+                          <Play className="w-7 h-7 text-background" />
+                        </div>
                       </div>
 
-                      <h3 className="flex flex-col gap-1 font-semibold text-white w-full">
-                        <span className="font-arabic-stylized text-xl">{w.titleAr}</span>
-                        <span className="ltr font-['Acumin'] text-sm opacity-80 uppercase tracking-wide w-full text-right">
-                          {w.titleEn}
-                        </span>
-                      </h3>
-                    </div>
+                      {/* محتوى عند الهوفر */}
+                      <div className="absolute inset-0 p-6 flex flex-col justify-end items-start text-right opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+                        <div className="flex flex-col items-start mb-2 w-full">
+                          <span className="font-arabic-stylized text-secondary text-sm font-bold tracking-wide">
+                            {(w as any).categoryAr || ""}
+                          </span>
+                          <span className="ltr font-['Acumin'] text-secondary/80 text-[10px] uppercase tracking-wider w-full text-right">
+                            {(w as any).categoryEn || ""}
+                          </span>
+                        </div>
 
-                    <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                </div>
-              ))}
+                        <h3 className="flex flex-col gap-1 font-semibold text-white w-full">
+                          <span className="font-arabic-stylized text-xl">
+                            {w.titleAr}
+                          </span>
+                          <span className="ltr font-['Acumin'] text-sm opacity-80 uppercase tracking-wide w-full text-right">
+                            {w.titleEn}
+                          </span>
+                        </h3>
+                      </div>
+
+                      <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>
@@ -321,7 +450,7 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
             viewport={{ once: true }}
             className="grid gap-6"
           >
-            {service.faqs.map((f, i) => (
+            {(service.tags ?? []).map((t, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
@@ -347,8 +476,7 @@ export function ServiceDetail({ service }: { service: ServiceData }) {
       </section>
 
       {/* =========================
-          CONTACT الحقيقي بتاعك (بنفس كودك اللي بعتتيه)
-          والزرار فوق بيروح له بـ href="#contact"
+          CONTACT الحقيقي بتاعك
          ========================= */}
       <Contact />
     </main>

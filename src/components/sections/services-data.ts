@@ -3,7 +3,9 @@ export type ServiceWork = {
   titleEn: string;
   categoryAr: string;
   categoryEn: string;
-  image: string; // placeholder أو URL لاحقًا من Supabase
+  image?: string;     // خليها زي ما كانت (تقدر تبقى Thumbnail)
+  thumbUrl?: string;  // Thumbnail من Supabase (اختياري)
+  driveUrl?: string;  // رابط Drive للفيديو (اختياري)
 };
 
 export type ServiceFAQ = {
@@ -31,8 +33,10 @@ export type ServiceData = {
   whatYouGet: { ar: string; en: string }[];
   process: { arTitle: string; arDesc: string; enTitle: string; enDesc: string }[];
 
-  bestWork: ServiceWork[]; // خليها [] دلوقتي
+  bestWork: ServiceWork[];
   faqs: ServiceFAQ[];
+
+  tags?: { ar: string; en: string }[]; // ✅ أضيفي دي
 };
 
 export const SERVICES: Record<string, ServiceData> = {
@@ -81,7 +85,22 @@ export const SERVICES: Record<string, ServiceData> = {
       },
     ],
 
-    bestWork: [],
+    bestWork: [
+  {
+    titleAr: "الهويات المختلفة للبراندات",
+    titleEn: "Brand Identity Collection",
+    categoryAr: "ديزاينات",
+    categoryEn: "Designs",
+    driveUrl: "https://drive.google.com/drive/folders/1AmIOG-PEJYEwJAN-LUQTPRuUHcPmzldC",
+  },
+  {
+    titleAr: "ديزاينات في مجال الفود",
+    titleEn: "Food Designs",
+    categoryAr: "ديزاينات",
+    categoryEn: "Designs",
+    driveUrl: "https://drive.google.com/drive/folders/1l9VJkzTnpWveYDHPAjhwLakAZhtJKqA_?usp=sharing",
+  },
+],
 
     faqs: [
       {
@@ -219,7 +238,15 @@ export const SERVICES: Record<string, ServiceData> = {
     },
   ],
 
-  bestWork: [],
+  bestWork: [
+  {
+    titleAr: "الكمباني بروفايلز التي نفذناها",
+    titleEn: "Company Profiles Collection",
+    categoryAr: "بروفايل + لاي أوت",
+    categoryEn: "Profile + Layout",
+    driveUrl: "https://drive.google.com/drive/folders/1_MBXOv4Vf9CNatR13A2rzMVB3wRj4C7u",
+  },
+],
 
   faqs: [
     {
@@ -289,28 +316,65 @@ export const SERVICES: Record<string, ServiceData> = {
     },
   ],
 
-  bestWork: [],
+bestWork: [
+  {
+    titleAr: "وزارة العدل القطرية",
+    titleEn: "Qatar Ministry of Justice",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://drive.google.com/file/d/1xKKB63XHxgH0oOA_osjkunmKVC5zDTQB/view?usp=drivesdk",
+  },
+  {
+    titleAr: "اللجنة الدائمة للقانون الدولي الإنساني – السعودية",
+    titleEn: "Saudi IHL Standing Committee Project",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://drive.google.com/file/d/1nduAkBZotwpLt0GErJBJIs8chgKIL3Uh/view?usp=drivesdk",
+  },
+  {
+    titleAr: "المصباح المضيء – مؤسسة خيرية",
+    titleEn: "Al-Misbah Al-Mudi Charity",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://drive.google.com/drive/folders/1lGfrJRrMuR_mjOrsKSWLOZkQWh3NwuMt",
+  },
+  {
+    titleAr: "ميكنج تسجيل فيلم كويتي (أنميشن)",
+    titleEn: "Kuwaiti Animation Film Making-of",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://drive.google.com/file/d/1tTifwE9zmMxJO3S5gO2_YUPhqA9GuJZU/view?usp=drivesdk",
+  },
+  {
+    titleAr: "إعلانات شركة كوفتي العالمية (أكثر من ٩ دول)",
+    titleEn: "Kofty Global Ads (9+ Countries)",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://drive.google.com/drive/folders/1H2VRhUOnzPcAYqFy5rJln7Sq4AHUpLqU",
+  },
+  {
+    titleAr: "مشاريع داخل استديوهات إميجنيشن (Drive)",
+    titleEn: "In-Studio Projects (Drive)",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://drive.google.com/drive/folders/1RJFH43UszkKfiBNZBmlr6DNwETp6TBNp",
+  },
+  {
+    titleAr: "مشاريع داخل استديوهات إميجنيشن (Facebook)",
+    titleEn: "In-Studio Projects (Facebook)",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://www.facebook.com/share/1Dr3Bpox9W/",
+  },
+  {
+    titleAr: "مشاريع مع شركة دايكن (Facebook)",
+    titleEn: "Daikin Projects (Facebook)",
+    categoryAr: "تصوير فيديو",
+    categoryEn: "Video Shooting",
+    driveUrl: "https://www.facebook.com/share/r/1CNmcCKcBo/",
+  },
+],
 
-  faqs: [
-    {
-      qAr: "هل التصوير يشمل المونتاج؟",
-      aAr: "يمكن تقديم التصوير وحده أو ضمن باقة تصوير + مونتاج حسب الاحتياج.",
-      qEn: "Does shooting include editing?",
-      aEn: "It can be shooting-only or a full shoot + edit package as needed.",
-    },
-    {
-      qAr: "هل توفرون تصويراً مناسباً للريلز والمنصات؟",
-      aAr: "نعم، يمكن تصوير محتوى عمودي أو بمقاسات متعددة حسب المنصة.",
-      qEn: "Do you shoot for reels and platforms?",
-      aEn: "Yes, we can shoot vertical and platform-optimized formats.",
-    },
-    {
-      qAr: "كيف يتم تحديد مدة التصوير؟",
-      aAr: "بحسب عدد المواقع واللقطات المطلوبة وطبيعة المحتوى.",
-      qEn: "How is shoot duration determined?",
-      aEn: "Based on locations, shot list, and content requirements.",
-    },
-  ],
 },
 
 photography: {
@@ -359,7 +423,22 @@ photography: {
     },
   ],
 
-  bestWork: [],
+  bestWork: [
+  {
+    titleAr: "مشاريع مختلفة في مجال التصوير",
+    titleEn: "Photography Projects",
+    categoryAr: "تصوير فوتو",
+    categoryEn: "Photography",
+    driveUrl: "https://drive.google.com/drive/folders/1J2tYrdwJhrK2mH3jS2J4A1OaXgHt0cm3",
+  },
+  {
+    titleAr: "مشاريع تصوير متنوعة",
+    titleEn: "Various Photography Projects",
+    categoryAr: "تصوير فوتو",
+    categoryEn: "Photography",
+    driveUrl: "https://drive.google.com/drive/folders/16P4P5Yk63Ty3TZuz2Zt9kgU0qjshPov4",
+  },
+],
 
   faqs: [
     {
@@ -429,7 +508,29 @@ photography: {
     },
   ],
 
-  bestWork: [],
+  bestWork: [
+  {
+    titleAr: "تغطية الاحتفال السنوي لشركة دايكن العالمية",
+    titleEn: "Daikin Annual Celebration Coverage",
+    categoryAr: "تغطيات خارجية",
+    categoryEn: "Exterior Coverage",
+    driveUrl: "https://drive.google.com/file/d/1rsp63X5U7oDvCv0ua4q7o4nM9AHdy1O8/view?usp=drivesdk",
+  },
+  {
+    titleAr: "تغطية إيفنت أصوات عربية",
+    titleEn: "Arab Voices Event Coverage",
+    categoryAr: "تغطيات خارجية",
+    categoryEn: "Exterior Coverage",
+    driveUrl: "https://drive.google.com/file/d/1icDjzUK6hOWnJBEzDimFZHQzgBNnHglY/view?usp=drivesdk",
+  },
+  {
+    titleAr: "تغطية تفاريح في القاهرة (Facebook)",
+    titleEn: "Tafareeh Cairo Coverage (Facebook)",
+    categoryAr: "تغطيات خارجية",
+    categoryEn: "Exterior Coverage",
+    driveUrl: "https://www.facebook.com/share/v/1EB8c5GiGD/",
+  },
+],
 
   faqs: [
     {
@@ -569,7 +670,29 @@ montage: {
     },
   ],
 
-  bestWork: [],
+  bestWork: [
+  {
+    titleAr: "برومو شو ما وراء المايك (٣ كاميرات)",
+    titleEn: "Beyond the Mic Promo (3 Cameras)",
+    categoryAr: "مونتاج",
+    categoryEn: "Post-Production",
+    driveUrl: "https://drive.google.com/file/d/1QnlW3PQHMqXtCq9Gu4U5jzATKiR3uwGH/view?usp=drivesdk",
+  },
+  {
+    titleAr: "تصوير ومونتاج لثلاثة مطاعم (Food)",
+    titleEn: "Food Restaurants – Filming & Editing",
+    categoryAr: "مونتاج",
+    categoryEn: "Post-Production",
+    driveUrl: "https://drive.google.com/drive/folders/1FEwVuUvR8am-T6P__FC_KebJCJN6_N-q",
+  },
+  {
+    titleAr: "فيديوهات من تصويرنا ومونتاجنا (Facebook)",
+    titleEn: "Filming & Editing Reels (Facebook)",
+    categoryAr: "مونتاج",
+    categoryEn: "Post-Production",
+    driveUrl: "https://www.facebook.com/share/r/17veXFnRN2/",
+  },
+],
 
   faqs: [
     {
@@ -639,7 +762,15 @@ montage: {
     },
   ],
 
-  bestWork: [],
+  bestWork: [
+  {
+    titleAr: "مشاريع مختلفة في مجال التعليق الصوتي",
+    titleEn: "Voice Over Projects",
+    categoryAr: "تسجيل صوتي",
+    categoryEn: "Voice Recording",
+    driveUrl: "https://drive.google.com/drive/folders/1PhTVZbYx7OazfKgv_a7_j6IFBgNtFjus",
+  },
+],
 
   faqs: [
     {
@@ -709,7 +840,15 @@ montage: {
     },
   ],
 
-  bestWork: [],
+  bestWork: [
+  {
+    titleAr: "إنتاج بالذكاء الاصطناعي (سلسلة 50+)",
+    titleEn: "AI Production Series (50+)",
+    categoryAr: "إنتاج AI",
+    categoryEn: "AI Production",
+    driveUrl: "https://drive.google.com/drive/folders/1TCQ5lzSrYGMHUoCZmZxExHFceCJnzjQz",
+  },
+],
 
   faqs: [
     {
@@ -1152,9 +1291,6 @@ marketing: {
     },
   ],
 },
-
-
-
 
 
 
