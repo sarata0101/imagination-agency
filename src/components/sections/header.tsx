@@ -40,13 +40,10 @@ export function Header() {
       >
         <div className="max-w-7xl mx-auto px-6">
           {/* ارتفاع الـ Nav */}
-          <nav className="flex items-center justify-between h-32 transition-all duration-300">
-            
-            {/* Logo */}
+        <nav className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? "h-24" : "h-40 md:h-56"}`}>            {/* Logo */}
             <a href="/" className="flex items-center gap-3">
               {/* أبعاد اللوجو الكبيرة */}
-              <div className="relative w-48 h-16 md:w-80 md:h-28 transition-all duration-300">
-                <Image 
+              <div className="relative w-64 h-24 md:w-[450px] md:h-44 transition-all duration-300">                <Image 
                   src="/logo-full.svg" 
                   alt="Imagination Logo" 
                   fill 
