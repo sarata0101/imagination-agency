@@ -306,21 +306,7 @@ export function Portfolio() {
           ))}
         </motion.div>
 
-        {/* زرار مشاهدة الكل */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16 flex justify-center"
-        >
-          <button className="px-10 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 rounded-full flex flex-col items-center gap-1 group">
-            <span className="font-arabic-stylized text-lg font-bold">شاهد كل الأعمال</span>
-            <span className="ltr font-['Acumin'] text-xs uppercase tracking-widest opacity-80 group-hover:opacity-100">
-              View All Projects
-            </span>
-          </button>
-        </motion.div>
+        
       </div>
     </section>
   );

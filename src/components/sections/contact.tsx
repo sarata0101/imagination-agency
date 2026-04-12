@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react"; // 1. Added useState
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +8,45 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 
 export function Contact() {
+  // 2. Added State to manage form data
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  // 3. Function to handle input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  // 4. Function to format message and open WhatsApp
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const phoneNumber = "966549486001"; 
+
+    // 1. Professional Arabic labels
+    // 2. Added Emojis for a modern agency look
+    // 3. Added a divider (----------) for organization
+    // 4. Added a motivating closing signature
+    const message = 
+        `🚀 *طلب مشروع جديد - وكالة تخيُّل* %0A` + 
+        `--------------------------------%0A%0A` + 
+        `👤 *الاسم الكريم:* ${formData.name}%0A` + 
+        `📧 *البريد الإلكتروني:* ${formData.email}%0A` + 
+        `💡 *الموضوع:* ${formData.subject}%0A%0A` + 
+        `📝 *تفاصيل المشروع:*%0A${formData.message}%0A%0A` + 
+        `--------------------------------%0A` + 
+        `✨ *شكراً لاختيارك تخيُّل .. دعنا نحول شغفك إلى واقع استثنائي!*`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    alert("شكراً لتواصلك! سيتم تحويلك الآن لمتابعة الحديث عبر واتساب.");
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section id="contact" className="py-32 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
@@ -40,9 +80,7 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-16">
           
-          {/* ========================================================
-              الجزء اليمين: معلومات الاتصال (عدلنا الأرقام لليمين)
-             ======================================================== */}
+          {/* الجزء اليمين: معلومات الاتصال */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -50,7 +88,6 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="space-y-12 text-right"
           >
-            {/* 1. عنوان "لنتحدث سوياً" والوصف */}
             <div className="flex flex-col items-start text-right">
               <h3 className="flex flex-col items-start gap-1 font-semibold text-foreground mb-4 w-full">
                 <span className="font-arabic-stylized text-2xl">
@@ -66,8 +103,6 @@ export function Contact() {
             </div>
 
             <div className="space-y-10">
-              
-              {/* 2. الإيميل */}
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
@@ -85,19 +120,14 @@ export function Contact() {
                 </div>
               </div>
 
-              {/* 3. الأرقام (التعديل: خليناها items-start و justify-start عشان تيجي يمين) */}
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
-
-                {/* items-start: عشان المحاذاة العمودية تبقى يمين */}
                 <div className="flex-1 flex flex-col items-start gap-3"> 
                   <p className="ltr font-bold text-foreground font-['Acumin'] uppercase text-sm tracking-wider mb-1 w-full text-right">
                     Contact & WhatsApp
                   </p>
-                  
-                  {/* الرقم السعودي (واتساب) - justify-start: عشان يلزق يمين */}
                   <a
                     href="https://wa.me/966549486001"
                     target="_blank"
@@ -107,8 +137,6 @@ export function Contact() {
                      <span dir="ltr" className="font-['Acumin'] text-lg">+966 54 948 6001</span>
                      <MessageCircle className="w-5 h-5 text-secondary/80 group-hover:text-secondary" />
                   </a>
-
-                  {/* الرقم المصري (اتصال) - justify-start: عشان يلزق يمين */}
                   <a
                     href="tel:01556022288"
                     className="flex flex-row items-center justify-start gap-3 text-muted-foreground hover:text-secondary transition-colors group whitespace-nowrap"
@@ -119,7 +147,6 @@ export function Contact() {
                 </div>
               </div>
 
-              {/* 4. الموقع */}
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-primary" />
@@ -138,27 +165,28 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* ========================================================
-              الجزء الشمال: الفورم (سنترنا العناوين)
-             ======================================================== */}
+          {/* الجزء الشمال: الفورم */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form className="space-y-6 text-right">
+            {/* Added onSubmit handler */}
+            <form onSubmit={handleWhatsAppSubmit} className="space-y-6 text-right">
               <div className="grid sm:grid-cols-2 gap-6">
                 
                 {/* الاسم */}
                 <div className="space-y-2">
-                  {/* التعديل: justify-center عشان ييجي في النص */}
                   <label htmlFor="name" className="text-sm font-medium text-foreground flex gap-2 justify-center">
                       <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Name</span>
                       <span className="font-arabic-stylized">الاسم</span>
                   </label>
                   <Input
                     id="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="الاسم الكريم"
                     className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-arabic-stylized"
                   />
@@ -166,7 +194,6 @@ export function Contact() {
 
                 {/* البريد */}
                 <div className="space-y-2">
-                  {/* التعديل: justify-center */}
                   <label htmlFor="email" className="text-sm font-medium text-foreground flex gap-2 justify-center">
                     <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Email</span>
                     <span className="font-arabic-stylized">البريد الإلكتروني</span>
@@ -174,6 +201,9 @@ export function Contact() {
                   <Input
                     id="email"
                     type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="your@email.com"
                     className="ltr h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-['Acumin']"
                   />
@@ -182,13 +212,15 @@ export function Contact() {
 
               {/* الموضوع */}
               <div className="space-y-2">
-                {/* التعديل: justify-center */}
                 <label htmlFor="subject" className="text-sm font-medium text-foreground flex gap-2 justify-center">
                   <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Subject</span>
                   <span className="font-arabic-stylized">الموضوع</span>
                 </label>
                 <Input
                   id="subject"
+                  required
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder="استفسار عن مشروع..."
                   className="h-14 bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 text-right font-arabic-stylized"
                 />
@@ -196,13 +228,15 @@ export function Contact() {
 
               {/* الرسالة */}
               <div className="space-y-2">
-                {/* التعديل: justify-center */}
                 <label htmlFor="message" className="text-sm font-medium text-foreground flex gap-2 justify-center">
                   <span className="ltr font-['Acumin'] opacity-50 uppercase text-[10px] tracking-widest pt-1">Message</span>
                   <span className="font-arabic-stylized">الرسالة</span>
                 </label>
                 <Textarea
                   id="message"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="أخبرنا المزيد عن تفاصيل مشروعك..."
                   rows={6}
                   className="bg-muted/30 border-0 focus-visible:ring-primary placeholder:text-muted-foreground/50 resize-none text-right font-arabic-stylized"

@@ -119,25 +119,7 @@ export function CTA() {
             </p>
           </div>
 
-          {/* الزرار */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-14"
-          >
-            {/* تعديل ألوان الزرار لـ Terracotta */}
-            <Button
-              size="lg"
-              className="bg-[#c06c5b] text-white hover:bg-[#c06c5b]/90 px-10 py-8 rounded-full shadow-2xl hover:shadow-[#c06c5b]/20 transition-all flex flex-col items-center gap-1 mx-auto h-auto"
-            >
-              {/* تعديل الخطوط داخل الزرار */}
-              <span className="font-arabic-stylized text-xl font-bold">ابدأ مشروعك</span>
-              {/* الإنجليزي: ltr */}
-              <span className="ltr font-['Acumin'] text-xs uppercase tracking-widest opacity-90">Start a Project</span>
-            </Button>
-          </motion.div>
+          
         </motion.div>
       </div>
 
