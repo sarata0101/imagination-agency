@@ -112,31 +112,7 @@ export function Hero() {
           </span>
         </motion.p>
 
-        {/* الأزرار */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
-        >
-          {/* زرار الأعمال */}
-          <Button
-            size="lg"
-            className="bg-foreground text-background hover:bg-foreground/90 px-8 py-8 rounded-full flex flex-col gap-1 min-w-[200px] h-auto"
-          >
-            <span className="font-arabic-stylized text-lg">شاهد أعمالنا</span>
-            <span className="ltr font-['Acumin'] text-xs uppercase tracking-wider opacity-80">Our Work</span>
-          </Button>
-
-          {/* زرار التواصل */}
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-8 rounded-full flex flex-col gap-1 min-w-[200px] h-auto"
-          >
-            <span className="font-arabic-stylized text-lg">تواصل معنا</span>
-            <span className="ltr font-['Acumin'] text-xs uppercase tracking-wider opacity-80">Contact Us</span>
-          </Button>
-        </motion.div>
+        
       </div>
 
       
