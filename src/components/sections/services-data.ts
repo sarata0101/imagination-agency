@@ -43,7 +43,7 @@ export const SERVICES: Record<string, ServiceData> = {
   designs: {
     slug: "designs",
 
-    badgeAr: "خدمات التصميم",
+    badgeAr: "التصاميم الإبداعية",
     badgeEn: "Design Services",
 
     heroTitleArTop: "نُصمّم حضوراً…",
@@ -127,7 +127,7 @@ export const SERVICES: Record<string, ServiceData> = {
   editing: {
   slug: "editing",
 
-  badgeAr: "خدمات التحرير",
+  badgeAr: "المعالجة والتحرير",
   badgeEn: "Editing Services",
 
   heroTitleArTop: "نُحرّر المحتوى…",
@@ -195,7 +195,7 @@ export const SERVICES: Record<string, ServiceData> = {
 "company-profile-layout": {
   slug: "company-profile-layout",
 
-  badgeAr: "خدمات البروفايل واللاي أوت",
+  badgeAr: "تصميم الملفات التعريفية والتنسيق الفني",
   badgeEn: "Profile & Layout Services",
 
   heroTitleArTop: "نُقدّم قصتك…",
@@ -273,7 +273,7 @@ export const SERVICES: Record<string, ServiceData> = {
 "video-shooting": {
   slug: "video-shooting",
 
-  badgeAr: "خدمات تصوير الفيديو",
+  badgeAr: "الإنتاج المرئي السينمائي",
   badgeEn: "Video Shooting",
 
   heroTitleArTop: "نلتقط المشهد…",
@@ -316,7 +316,7 @@ export const SERVICES: Record<string, ServiceData> = {
     },
   ],
 
-bestWork: [
+  bestWork: [
   {
     titleAr: "وزارة العدل القطرية",
     titleEn: "Qatar Ministry of Justice",
@@ -375,12 +375,33 @@ bestWork: [
   },
   ],
 
+  faqs: [
+    {
+      qAr: "ما المدة المتوقعة لجلسة التصوير؟",
+      aAr: "تختلف حسب طبيعة المشروع، لكن عادة تتراوح بين 4-8 ساعات.",
+      qEn: "What's the expected shooting duration?",
+      aEn: "It depends on the project scope, typically 4-8 hours per session.",
+    },
+    {
+      qAr: "هل يتم توفير معدات التصوير؟",
+      aAr: "نعم، نوفّر جميع المعدات والعدد اللازمة للتصوير.",
+      qEn: "Do you provide filming equipment?",
+      aEn: "Yes, we provide all necessary equipment and gear for shooting.",
+    },
+    {
+      qAr: "هل يمكن الحصول على النسخة الخام؟",
+      aAr: "نعم، يمكن تسليم المواد الخام أو ضمن باقة تصوير + مونتاج.",
+      qEn: "Can we get raw footage?",
+      aEn: "Yes, raw footage can be delivered or bundled with editing as needed.",
+    },
+  ],
+
 },
 
 photography: {
   slug: "photography",
 
-  badgeAr: "خدمات التصوير الفوتوغرافي",
+  badgeAr: " التصوير الفوتوغرافي",
   badgeEn: "Photography",
 
   heroTitleArTop: "نُصوّر التفاصيل…",
@@ -465,7 +486,7 @@ photography: {
 "exterior-coverage": {
   slug: "exterior-coverage",
 
-  badgeAr: "خدمات التغطيات الخارجية",
+  badgeAr: " التغطيات الميدانيةوالفعاليات",
   badgeEn: "Exterior Coverage",
 
   heroTitleArTop: "نوثّق الحدث…",
@@ -557,7 +578,7 @@ photography: {
 "reels-shooting": {
   slug: "reels-shooting",
 
-  badgeAr: "خدمات تصوير الريلز",
+  badgeAr: "إنتاج المقاطع القصيرة",
   badgeEn: "Reels Shooting",
 
   heroTitleArTop: "نصنع لقطة…",
@@ -627,7 +648,7 @@ photography: {
 montage: {
   slug: "montage",
 
-  badgeAr: "خدمات المونتاج",
+  badgeAr: " المونتاج",
   badgeEn: "Post-Production",
 
   heroTitleArTop: "نرتّب اللقطات…",
@@ -719,7 +740,7 @@ montage: {
 "voice-recording": {
   slug: "voice-recording",
 
-  badgeAr: "خدمات التسجيل الصوتي",
+  badgeAr: "الهندسة والتعليق الصوتي",
   badgeEn: "Voice Recording",
 
   heroTitleArTop: "نمنح الكلمات…",
@@ -797,7 +818,7 @@ montage: {
 "ai-production": {
   slug: "ai-production",
 
-  badgeAr: "خدمات الإنتاج بالذكاء الاصطناعي",
+  badgeAr: "الإنتاج بالذكاء الاصطناعي",
   badgeEn: "AI Production",
 
   heroTitleArTop: "نبتكر المحتوى…",
@@ -875,7 +896,7 @@ montage: {
 "social-media-management": {
   slug: "social-media-management",
 
-  badgeAr: "خدمات إدارة الصفحات",
+  badgeAr: "إدارة منصات التواصل الاجتماعي",
   badgeEn: "Social Media Management",
 
   heroTitleArTop: "ندير حضورك…",
@@ -945,7 +966,7 @@ montage: {
 "content-writing": {
   slug: "content-writing",
 
-  badgeAr: "خدمات كتابة المحتوى",
+  badgeAr: "صناعة وتحريرر المحتوى الرقمي",
   badgeEn: "Content Writing",
 
   heroTitleArTop: "نكتب المعنى…",
@@ -1015,7 +1036,7 @@ montage: {
 "script-writing": {
   slug: "script-writing",
 
-  badgeAr: "خدمات كتابة الاسكربتات",
+  badgeAr: "كتابة السيناريو والحوار",
   badgeEn: "Script Writing",
 
   heroTitleArTop: "نصوغ الفكرة…",
@@ -1085,7 +1106,7 @@ montage: {
 "dialect-correction": {
   slug: "dialect-correction",
 
-  badgeAr: "خدمات تصحيح اللهجة",
+  badgeAr: "التدقيق اللغوي وضبط اللهجات",
   badgeEn: "Dialect Correction",
 
   heroTitleArTop: "نُنقّح الكلام…",
@@ -1155,7 +1176,7 @@ montage: {
 marketing: {
   slug: "marketing",
 
-  badgeAr: "خدمات التسويق",
+  badgeAr: "التسويق الاستراتيجي المتكامل",
   badgeEn: "Marketing",
 
   heroTitleArTop: "نضع خطة…",
@@ -1225,7 +1246,7 @@ marketing: {
 "media-buying": {
   slug: "media-buying",
 
-  badgeAr: "خدمات الميديا باينج",
+  badgeAr: "إدارة الحملات الإعلانية الممولة",
   badgeEn: "Media Buying",
 
   heroTitleArTop: "نستثمر الميزانية…",
