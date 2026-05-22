@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
+
+
 // 1. التعديل هنا: نقلنا "من نحن" في الأول خالص
 const navLinks = [
   { nameAr: "من نحن", nameEn: "About", href: "#about" }, // جت هنا رقم 1
@@ -73,13 +75,7 @@ export function Header() {
               ))}
             </div>
 
-            {/* CTA Button (Bilingual) */}
-            <div className="hidden md:block">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-6 h-auto flex flex-col items-center leading-none gap-1 shadow-md">
-                <span className="font-arabic-stylized text-sm font-bold">ابدأ مشروعك</span>
-                <span className="ltr font-['Acumin'] text-[10px] tracking-wide opacity-90 uppercase">Start a Project</span>
-              </Button>
-            </div>
+            
 
             {/* Mobile Menu Button */}
             <button
@@ -125,12 +121,7 @@ export function Header() {
                   </span>
                 </motion.a>
               ))}
-              <div className="mt-4 w-full">
-                <Button className="w-full bg-primary hover:bg-primary/90 rounded-full py-8 h-auto flex flex-col gap-2">
-                    <span className="font-arabic-stylized text-lg font-bold">ابدأ مشروعك</span>
-                    <span className="ltr font-['Acumin'] text-xs tracking-wide uppercase">Start a Project</span>
-                </Button>
-              </div>
+              
             </div>
           </motion.div>
         )}

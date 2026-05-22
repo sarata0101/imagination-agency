@@ -123,7 +123,7 @@ const projects: PortfolioProject[] = [
   {
     titleAr: "اللجنة الدائمة للقانون الدولي الإنساني – السعودية",
     titleEn: "Saudi IHL Standing Committee",
-    categoryAr: "تصوير فيديو",
+    categoryAr: "الإنتاج السينمائي",
     categoryEn: "Video Production",
     driveUrl:
       "https://drive.google.com/file/d/1nduAkBZotwpLt0GErJBJIs8chgKIL3Uh/view?usp=drivesdk",
@@ -132,23 +132,23 @@ const projects: PortfolioProject[] = [
   {
     titleAr: "تغطية الاحتفال السنوي لشركة دايكن العالمية",
     titleEn: "Daikin Annual Celebration",
-    categoryAr: "تغطيات خارجية",
+    categoryAr: "التغطيات الميدانية والفعاليات",
     categoryEn: "Event Coverage",
     driveUrl:
       "https://drive.google.com/file/d/1rsp63X5U7oDvCv0ua4q7o4nM9AHdy1O8/view?usp=drivesdk",
     size: "medium",
   },
   {
-    titleAr: "تغطية إيفنت أصوات عربية",
+    titleAr: "تغطية أصوات عربية",
     titleEn: "Arab Voices Event",
-    categoryAr: "تغطيات خارجية",
+    categoryAr: "التغطيات الميدانية والفعاليات",
     categoryEn: "Event Coverage",
     driveUrl:
       "https://drive.google.com/file/d/1icDjzUK6hOWnJBEzDimFZHQzgBNnHglY/view?usp=drivesdk",
     size: "small",
   },
   {
-    titleAr: "برومو شو ما وراء المايك (٣ كاميرات)",
+    titleAr: "برومو ما وراء المايك",
     titleEn: "Beyond The Mic Promo (3 Cameras)",
     categoryAr: "مونتاج",
     categoryEn: "Post-Production",
@@ -157,9 +157,9 @@ const projects: PortfolioProject[] = [
     size: "small",
   },
   {
-    titleAr: "ميكنج تسجيل فيلم كويتي (أنميشن)",
+    titleAr: " كواليس تسجيل فيلم كويتي ",
     titleEn: "Kuwaiti Animation Making-of",
-    categoryAr: "تصوير فيديو",
+    categoryAr: "الإنتاج السينمائي",
     categoryEn: "Video Production",
     driveUrl:
       "https://drive.google.com/file/d/1tTifwE9zmMxJO3S5gO2_YUPhqA9GuJZU/view?usp=drivesdk",
@@ -168,20 +168,11 @@ const projects: PortfolioProject[] = [
 
   // عناصر Folder قوية — ستفتح عادي، لكن thumbnail التلقائي غالبًا لن يظهر
   // الأفضل لاحقًا تحطي thumbUrl (Screenshot من Supabase Storage) بدل ما يفضل placeholder.
-  {
-    titleAr: "إعلانات شركة كوفتي العالمية (٩ دول)",
-    titleEn: "Kofty Global Ads (9+ Countries)",
-    categoryAr: "إعلانات عالمية",
-    categoryEn: "Global Ads",
-    driveUrl:
-      "https://drive.google.com/drive/folders/1H2VRhUOnzPcAYqFy5rJln7Sq4AHUpLqU",
-    // thumbUrl: "PUT_SUPABASE_PUBLIC_URL_HERE",
-    size: "large",
-  },
+  
   {
     titleAr: "إنتاج بالذكاء الاصطناعي (سلسلة 50+)",
     titleEn: "AI Production Series (50+)",
-    categoryAr: "إنتاج AI",
+    categoryAr: "إنتاج بالذكاء الاصطناعي",
     categoryEn: "AI Production",
     driveUrl:
       "https://drive.google.com/file/d/1jy0DCoMquuFnZoCi0Y8xsV-PM76LyjnR/view?usp=drive_link",
